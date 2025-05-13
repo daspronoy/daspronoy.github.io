@@ -42,15 +42,15 @@ interests:
   - Computational Electrodynamics
 
 education:
-  - area: PhD in Quantum Optics (Ongoing)
-    institution: Purdue University, WL
-    date_start: 2021-08-19
-    date_end: 2024-08-19
-    summary: |
-      Thesis title: Fundamentals of Deep-Microscopic Electrodynamics
-    # button:
-    #   text: 'Read Thesis'
-    #   url: 'https://example.com'
+  # - area: PhD in Quantum Optics (Ongoing)
+  #   institution: Purdue University, WL
+  #   date_start: 2021-08-19
+  #   date_end: 2024-08-19
+  #   summary: |
+  #     Thesis title: Fundamentals of Deep-Microscopic Electrodynamics
+  #   # button:
+  #   #   text: 'Read Thesis'
+  #   #   url: 'https://example.com'
   - area: BS + MS
     institution: Indian Institute of Science Education and Research Kolkata
     date_start: 2016-08-01
