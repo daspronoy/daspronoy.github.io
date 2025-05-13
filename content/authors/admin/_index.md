@@ -45,7 +45,7 @@ education:
   - area: PhD in Quantum Optics (Ongoing)
     institution: Purdue University, WL
     date_start: 2021-08-19
-    date_end: present
+    date_end: 2024-08-19
     summary: |
       Thesis title: Fundamentals of Deep-Microscopic Electrodynamics
     # button:
