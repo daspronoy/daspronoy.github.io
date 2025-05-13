@@ -46,6 +46,11 @@ education:
     institution: Purdue University, WL
     date_start: 2021-08-19
     date_end: present
+    # summary: |
+    #   Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+    # button:
+    #   text: 'Read Thesis'
+    #   url: 'https://example.com'
   - area: BS + MS
     institution: Indian Institute of Science Education and Research Kolkata
     date_start: 2016-08-01
