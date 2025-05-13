@@ -20,8 +20,8 @@ role: Graduate Research Assistant (PhD)
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: Birck Nanotechnology Center, Purdue University
+    url: https://birck.research.purdue.edu/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -46,13 +46,6 @@ education:
     institution: Purdue University, WL
     date_start: 2021-08-19
     date_end: present
-    # summary: |
-    #   Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
-    # button:
-    #   text: 'Read Thesis'
-    #   url: 'https://example.com'
-
-
   - area: BS + MS
     institution: Indian Institute of Science Education and Research Kolkata
     date_start: 2016-08-01
@@ -122,21 +115,21 @@ skills:
 languages:
   - name: English
     percent: 100
-  - name: Chinese
+  - name: Hindi
+    percent: 100
+  - name: Bengali
     percent: 75
-  - name: Portuguese
-    percent: 25
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: '2023-11-25'
-    awarder: Coursera
-    icon: coursera
+  - title: Hugh and Edna Donnan (Bilsland) Dissertation Fellowship
+    url: https://www.purdue.edu/academics/ogsps/fellowship/funding-resources-for-students/fellowships/managed-fellowships/bilsland-dissertation-fellowship.html
+    date: '2025-01-10'
+    awarder: Purdue
+    # icon: coursera
     summary: |
       I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
   - title: Blockchain Fundamentals
