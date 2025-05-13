@@ -45,7 +45,7 @@ education:
   - area: PhD in Quantum Optics (Ongoing)
     institution: Purdue University, WL
     date_start: 2021-08-19
-    date_end: 2025-08-19 
+    date_end: 2025-08-19      
     summary: |
       Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
     button:
