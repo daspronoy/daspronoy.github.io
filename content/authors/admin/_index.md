@@ -5,10 +5,6 @@ title: Pronoy Das
 # Name pronunciation (optional)
 name_pronunciation: ''
 
-# Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
-
 # Status emoji
 status:
   icon: ☕️
@@ -20,7 +16,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role: Graduate Research Assistant (PhD)
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -31,25 +27,19 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:pronoyiiserk@gmail.com'
     label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/daspronoy
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/daspronoy
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
-  - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Photonics
+  - Quantum Optics
+  - Computational Electrodynamics
 
 education:
   - area: PhD Artificial Intelligence
