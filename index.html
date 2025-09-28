@@ -197,26 +197,76 @@
     }
 
     function SiteHeader({ nav, name }) {
-      const [dark, setDark] = React.useState(false);
+      // Initialize from saved preference or system setting
+      const [dark, setDark] = React.useState(() => {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved === 'dark';
+        return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+      });
+
       React.useEffect(() => {
         const root = document.documentElement;
-        dark ? root.classList.add('dark') : root.classList.remove('dark');
+        if (dark) {
+          root.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          root.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        }
       }, [dark]);
+
       return (
         <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/70 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
             <a href="#top" className="font-semibold tracking-tight">{name}</a>
             <nav className="hidden gap-6 sm:flex">
               {nav.map((item) => (
-                <a key={item.id} href={`#${item.id}`} className="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white">{item.label}</a>
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+                >
+                  {item.label}
+                </a>
               ))}
             </nav>
-            <button onClick={() => setDark(d => !d)} className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 active:scale-95 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
-              <span className="relative inline-flex h-2.5 w-2.5 mr-1"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-40"></span><span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span></span>
-              {dark ? 'Dark' : 'Light'}
-            </button>
+            <ThemeSwitch dark={dark} setDark={setDark} />
           </div>
         </header>
+      );
+    }
+
+    // Compact, accessible on–off switch
+    function ThemeSwitch({ dark, setDark }) {
+      return (
+        <button
+          type="button"
+          role="switch"
+          aria-checked={dark}
+          aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+          onClick={() => setDark((d) => !d)}
+          className={`relative inline-flex h-6 w-11 items-center rounded-full transition
+            ${dark ? 'bg-neutral-700' : 'bg-neutral-200'}`}
+        >
+          <span
+            className={`absolute left-1 text-[10px] leading-none select-none transition
+              ${dark ? 'opacity-0' : 'opacity-80'}`}
+            aria-hidden="true"
+          >
+            ☀︎
+          </span>
+          <span
+            className={`absolute right-1 text-[10px] leading-none select-none transition
+              ${dark ? 'opacity-80' : 'opacity-0'}`}
+            aria-hidden="true"
+          >
+            ☾
+          </span>
+          <span
+            className={`inline-block h-5 w-5 transform rounded-full bg-white shadow ring-1 ring-black/5 transition
+              ${dark ? 'translate-x-5' : 'translate-x-1'}`}
+          />
+        </button>
       );
     }
 
