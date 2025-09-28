@@ -110,10 +110,30 @@
     ];
 
     const research = [
-      { title: 'Quantum optics of structured light', text: 'Spatiotemporal optical vortices (STOVs) beyond the paraxial limit; quantum states (Fock/coherent pulses); texture of OAM fluctuations.', highlights: ['STOV theory','3D OAM noise','Polychromatic vortices'] },
-      { title: 'Photon angular momentum fundamentals', text: 'Gauge-invariant SAM/OAM decomposition and corrected commutation relations; generators of rotations for observable fields.', highlights: ['SAM/OAM','Commutation','Observable fields'] },
-      { title: 'Chiral matter & deep-microscopic optics', text: 'Spin-resolved deep-microscopic optical bandstructure; super-dispersive optical gyrotropy in Te; Purdue–PicoMax tooling.', highlights: ['Optical spin texture','Gyrotropy','Purdue‑PicoMax'] },
-      { title: 'Sensing & plasmonics', text: 'Localized spoof surface plasmon resonators for ESR detection down to 10 K; field confinement and cryogenic behavior.', highlights: ['LSSP','ESR @ 10 K','Microwave photonics'] },
+
+      {
+        title: 'Deep-microscopic optics of chiral tellurium',
+        text: 'Spin-resolved optical bandstructure; nonlocal optical gyrotropy; hidden optical waves & spin textures revealed inside the lattice, Purdue–PicoMax tooling.',
+        highlights: ['Optical bandstructure','Super-dispersive gyrotropy','Hidden optical spin texture','Purdue‑PicoMax']
+      },
+      {
+        title: 'Quantum OAM in spatiotemporal optical vortices',
+        text: 'Spatiotemporal optical vortices (STOVs) beyond the paraxial limit; quantum states (Fock/coherent pulses); texture of OAM fluctuations.',
+        highlights: ['3D OAM noise','Fock & coherent pulses','Commutation relations (photon AM)']
+      },
+      { 
+        title: 'Photon angular momentum fundamentals', 
+        text: 'Gauge-invariant SAM/OAM decomposition and corrected commutation relations; generators of rotations for observable fields.', 
+        highlights: ['SAM/OAM','Commutation','Observable fields'] 
+      },
+      {
+        title: 'Quantum metrology with NV centers',
+        text: 'Sagnac-based GHz phase/amp modulation for spin-textured light; shallow NV creation & cryogenic ODMR instrumentation.',
+        highlights: ['Sagnac interferometry','Shallow NV (~30 nm)','Cryo ODMR setup']
+      },
+      { title: 'Sensing & plasmonics', 
+        text: 'Localized spoof surface plasmon resonators for ESR detection down to 10 K; field confinement and cryogenic behavior.', 
+        highlights: ['LSSP','ESR @ 10 K','Microwave photonics'] },
     ];
 
     // ---------- Components ----------
@@ -135,7 +155,7 @@
             <Section id="research" title="Research"><ResearchGrid items={research} /></Section>
             <Section id="publications" title="Selected Publications"><PublicationsList pubs={publications} /></Section>
             <Section id="software" title="Software: Purdue‑PicoMax"><SoftwareBlock /></Section>
-            <Section id="docs" title="CV & Documents"><DocsList docs={documents} /></Section>
+            <Section id="docs" title="Resume, CV & Documents"><DocsList docs={documents} /></Section>
             <Section id="contact" title="Contact"><ContactBlock profile={profile} /></Section>
             <Footer name={profile.name} />
           </main>
