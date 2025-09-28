@@ -25,9 +25,10 @@
       tagline: 'Quantum optics & structured light • STOVs • OAM • Chiral photonics',
       location: 'West Lafayette, IN',
       affiliations: [
-        'Elmore Family School of Electrical & Computer Engineering, Purdue University',
+        'Elmore Family School of Electrical & Computer Engineering',
         'Birck Nanotechnology Center',
         'Purdue Quantum Science & Engineering Institute',
+        ' Purdue University'
       ],
       email: 'das168@purdue.edu', // optional
       links: [
@@ -223,17 +224,16 @@
       return (
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
-            <p className="text-neutral-700 dark:text-neutral-300">I study the quantum physics of structured light—especially spatiotemporal optical vortices (STOVs), photon angular momentum (SAM/OAM), and light–matter interactions in chiral media. My recent work introduces a deep‑microscopic optical bandstructure and spin texture in chiral tellurium and develops the quantum theory of OAM fluctuations in STOV pulses.</p>
+            <p className="text-neutral-700 dark:text-neutral-300">I am a researcher in quantum optics. I explore how light can be shaped—how it twists, spins, and flows in space and time, and how those properties interact with advanced materials. In practice, that means three things: designing “structured” light pulses (think tiny corkscrews of light), uncovering how photons carry angular momentum, and building tools to read subtle optical fingerprints inside chiral crystals like tellurium. The goal is simple: turn deep physics into practical capabilities for imaging, sensing, and robust photonic devices.</p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-neutral-700 dark:text-neutral-300">
               {affiliations.map((a) => (<li key={a}>{a}</li>))}
             </ul>
           </div>
           <Card title="Now" subtitle="What I'm focused on">
             <div className="space-y-3 p-4">
-              <Chip>STOV quantum states & OAM noise</Chip>
-              <Chip>Spin‑resolved optical bandstructure (Purdue‑PicoMax)</Chip>
-              <Chip>Gyrotropy & optical activity at finite momentum</Chip>
-              <Chip>Gauge‑invariant photon AM (SAM/OAM)</Chip>
+              <Chip>Photonics at deep-microscopic scales in quantum materials</Chip>
+              <Chip>Nonlocal optical responses at deep-microscopic scales</Chip>
+              <Chip>Spatio-temporal optical states in single-photon limit</Chip>
             </div>
           </Card>
         </div>
