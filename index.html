@@ -12,9 +12,6 @@
   <!-- React 18 + Babel (for JSX without a build step) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <!-- React Router DOM (UMD) -->
-  <script crossorigin src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js"></script>
-  <!-- Babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <meta name="description" content="Quantum optics & structured light • STOVs • OAM • Chiral photonics" />
 </head>
@@ -22,7 +19,7 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    // ---------- Data ----------
+    // ---------- Profile data (update paths for GitHub) ----------
     const profile = {
       name: 'Pronoy Das',
       tagline: 'Bilsland Fellow | Graduate Research Assistant',
@@ -33,12 +30,12 @@
         'Purdue Quantum Science & Engineering Institute',
         'Purdue University, WL, IN, USA'
       ],
-      email: 'das168@purdue.edu',
+      email: 'das168@purdue.edu', // optional
       links: [
         { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daspronoy/' },
         { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en'},
       ],
-      headshot: 'assets/Pronoy.jpeg',
+      headshot: 'assets/Pronoy.jpeg', // <-- put image at repo/assets/Pronoy.jpeg
       availability: 'Open to industrial R&D opportunities',
     };
 
@@ -115,10 +112,11 @@
     ];
 
     const research = [
+
       {
         title: 'Deep-microscopic optics of chiral tellurium',
         text: 'Spin-resolved optical bandstructure; nonlocal optical gyrotropy; hidden optical waves & spin textures revealed inside the lattice, Purdue–PicoMax tooling.',
-        highlights: ['Optical bandstructure','Super-dispersive gyrotropy','Hidden optical spin texture','Purdue-PicoMax']
+        highlights: ['Optical bandstructure','Super-dispersive gyrotropy','Hidden optical spin texture','Purdue‑PicoMax']
       },
       {
         title: 'Quantum OAM in spatiotemporal optical vortices',
@@ -140,55 +138,72 @@
         highlights: ['LSSP','ESR @ 10 K','Microwave photonics'] },
     ];
 
+
+
     const awards = [
-      { title: 'Bilsland Dissertation Fellowship', org: 'Purdue University', year: '2026', note: 'Awarded by Purdue University for research excellence to support the final year of dissertation work.' },
-      { title: 'APS Distinguished Student (DS) Award', org: 'APS Forum on International Physics', year: '2025', note: 'Awarded to present research at APS Global Physics Summit 2025.' },
-      { title: 'Purdue ECE Bravo Award for Excellence in Teaching', org: 'Purdue University', year: '2024', note: 'Recognized for excellence and outstanding contributions as a Graduate Course Instructor.' },
-      { title: 'Summer Research Grant', org: 'Purdue University', year: '2024', note: 'Competitive university-wide grant from Purdue University to support full-time summer research.' },
-    ];
+        {
+          title: 'Bilsland Dissertation Fellowship',
+          org: 'Purdue University',
+          year: '2026',
+          note: 'Awarded by Purdue University for research excellence to support the final year of dissertation work.'
+        },
+        {
+          title: 'APS Distinguished Student (DS) Award',
+          org: 'APS Forum on International Physics',
+          year: '2025',
+          note: 'Awarded to present research at APS Global Physics Summit 2025.'
+        },
+        {
+          title: 'Purdue ECE Bravo Award for Excellence in Teaching',
+          org: 'Purdue University',
+          year: '2024',
+          note: 'Recognized for excellence and outstanding contributions as a Graduate Course Instructor.'
+        },
+        {
+          title: 'Summer Research Grant',
+          org: 'Purdue University',
+          year: '2024',
+          note: 'Competitive university-wide grant from Purdue University to support full-time summer research.'
+        },
+        // Add more items as needed
+      ];
 
     // ---------- Components ----------
-    const { HashRouter, Routes, Route, NavLink, Link, useLocation } = ReactRouterDOM;
-
-    function ScrollToTop() {
-      const { pathname } = useLocation();
-      React.useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
-      return null;
-    }
-
     function App() {
       const nav = [
-        { to: '/', label: 'Home' },
-        { to: '/research', label: 'Research' },
-        { to: '/publications', label: 'Publications' },
-        { to: '/software', label: 'Software' },
+        { id: 'about', label: 'About' },
+        { id: 'research', label: 'Research' },
+        { id: 'awards', label: 'Awards' },
+        { id: 'publications', label: 'Publications' },
+        { id: 'software', label: 'Software' },
+        { id: 'docs', label: 'Resume, CV & Docs' },
+        { id: 'contact', label: 'Contact' },
       ];
       return (
-        <HashRouter>
-          <ScrollToTop />
-          <div className="min-h-screen">
-            <SiteHeader nav={nav} name={profile.name} />
-            <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/research" element={<ResearchPage />} />
-                <Route path="/publications" element={<PublicationsPage />} />
-                <Route path="/software" element={<SoftwarePage />} />
-              </Routes>
-              <Footer name={profile.name} />
-            </main>
-          </div>
-        </HashRouter>
+        <div className="min-h-screen">
+          <SiteHeader nav={nav} name={profile.name} />
+          <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <Hero profile={profile} documents={documents} />
+            <Section id="about" title="About"><About affiliations={profile.affiliations} availability={profile.availability} /></Section>
+            <Section id="research" title="Research"><ResearchGrid items={research} /></Section>
+            <Section id="awards" title="Awards"><AwardsList items={awards} /></Section>
+            <Section id="publications" title="Selected Publications"><PublicationsList pubs={publications} /></Section>
+            <Section id="software" title="Software: Purdue‑PicoMax"><SoftwareBlock /></Section>
+            <Section id="docs" title="Resume, CV & Documents"><DocsList docs={documents} /></Section>
+            <Section id="contact" title="Contact"><ContactBlock profile={profile} /></Section>
+            <Footer name={profile.name} />
+          </main>
+        </div>
       );
     }
 
-    // ---- Layout bits ----
     function SiteHeader({ nav, name }) {
       const [dark, setDark] = React.useState(() => {
         const saved = localStorage.getItem('theme');
         if (saved) return saved === 'dark';
         return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
       });
+    
 
       React.useEffect(() => {
         const root = document.documentElement;
@@ -204,23 +219,16 @@
       return (
         <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/70 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-            <Link to="/" className="font-semibold tracking-tight">{name}</Link>
+            <a href="#top" className="font-semibold tracking-tight">{name}</a>
             <nav className="hidden gap-6 sm:flex">
               {nav.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `text-sm transition ${
-                      isActive
-                        ? 'text-neutral-900 dark:text-white font-semibold'
-                        : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white'
-                    }`
-                  }
-                  end
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
                 >
                   {item.label}
-                </NavLink>
+                </a>
               ))}
             </nav>
             <ThemeSwitch dark={dark} setDark={setDark} />
@@ -231,9 +239,19 @@
 
     function ThemeSwitch({ dark, setDark }) {
       const toggle = () => setDark(d => !d);
+
       return (
         <div className="flex items-center gap-2 select-none">
-          <span aria-hidden="true" className={`text-sm transition ${dark ? 'opacity-50' : 'opacity-100'}`} title="Light mode">☀︎</span>
+          {/* Sun icon (left) */}
+          <span
+            aria-hidden="true"
+            className={`text-sm transition ${dark ? 'opacity-50' : 'opacity-100'}`}
+            title="Light mode"
+          >
+            ☀︎
+          </span>
+
+          {/* Switch */}
           <button
             type="button"
             role="switch"
@@ -241,54 +259,27 @@
             aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
             onClick={toggle}
             onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle())}
-            className={`relative inline-flex h-6 w-12 items-center rounded-full transition ${dark ? 'bg-neutral-700' : 'bg-neutral-300'}`}
+            className={`relative inline-flex h-6 w-12 items-center rounded-full transition
+              ${dark ? 'bg-neutral-700' : 'bg-neutral-300'}`}
           >
-            <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow ring-1 ring-black/5 transition ${dark ? 'translate-x-6' : 'translate-x-1'}`} />
+            <span
+              className={`inline-block h-5 w-5 transform rounded-full bg-white shadow ring-1 ring-black/5 transition
+                ${dark ? 'translate-x-6' : 'translate-x-1'}`}
+            />
           </button>
-          <span aria-hidden="true" className={`text-sm transition ${dark ? 'opacity-100' : 'opacity-50'}`} title="Dark mode">☾</span>
+
+          {/* Moon icon (right) */}
+          <span
+            aria-hidden="true"
+            className={`text-sm transition ${dark ? 'opacity-100' : 'opacity-50'}`}
+            title="Dark mode"
+          >
+            ☾
+          </span>
         </div>
       );
     }
 
-    function Section({ id, title, children }) {
-      return (
-        <section id={id} className="scroll-mt-20 py-12">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white" />
-            <h2 className="text-xl font-semibold sm:text-2xl">{title}</h2>
-          </div>
-          {children}
-        </section>
-      );
-    }
-
-    function Footer({ name }) {
-      return (
-        <footer className="my-16 text-center text-sm text-neutral-500 dark:text-neutral-400">
-          <p>© {new Date().getFullYear()} {name}. All Rights Reserved.</p>
-        </footer>
-      );
-    }
-
-    function Card({ title, subtitle, children }) {
-      return (
-        <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="border-b border-neutral-200/70 p-4 dark:border-neutral-800">
-            <h3 className="text-base font-semibold leading-tight">{title}</h3>
-            {subtitle && (<p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{subtitle}</p>)}
-          </div>
-          {children}
-        </div>
-      );
-    }
-
-    function Chip({ children }) {
-      return (
-        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">{children}</span>
-      );
-    }
-
-    // ---- Shared blocks from your single-page site ----
     function Hero({ profile, documents }) {
       return (
         <section id="top" className="relative isolate">
@@ -325,9 +316,7 @@
       return (
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
-            <p className="text-neutral-700 dark:text-neutral-300">
-              I am a researcher in quantum optics. I explore how light can be shaped: how it twists, spins, and flows in space and time, and how those properties interact with advanced materials. In practice, that means three things: designing “structured” light pulses (think tiny corkscrews of light), uncovering how photons carry angular momentum, and building tools to read subtle optical fingerprints inside chiral crystals like tellurium. The goal is simple: turn deep physics into practical capabilities for imaging, sensing, and robust photonic devices.
-            </p>
+            <p className="text-neutral-700 dark:text-neutral-300">I am a researcher in quantum optics. I explore how light can be shaped: how it twists, spins, and flows in space and time, and how those properties interact with advanced materials. In practice, that means three things: designing “structured” light pulses (think tiny corkscrews of light), uncovering how photons carry angular momentum, and building tools to read subtle optical fingerprints inside chiral crystals like tellurium. The goal is simple: turn deep physics into practical capabilities for imaging, sensing, and robust photonic devices.</p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-neutral-700 dark:text-neutral-300">
               {affiliations.map((a) => (<li key={a}>{a}</li>))}
             </ul>
@@ -379,6 +368,7 @@
       );
     }
 
+
     function PublicationsList({ pubs }) {
       return (
         <div className="space-y-4">
@@ -408,10 +398,8 @@
       return (
         <div className="grid items-start gap-6 md:grid-cols-[1.2fr,0.8fr]">
           <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-            <h3 className="text-lg font-semibold">Purdue-PicoMax</h3>
-            <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-              Open tooling to compute spin-resolved deep-microscopic optical bandstructure and super-dispersive optical gyrotropy from current–current correlations with full lattice momentum-exchange processes. Built for chiral materials (e.g., tellurium) and extensible to general crystalline systems.
-            </p>
+            <h3 className="text-lg font-semibold">Purdue‑PicoMax</h3>
+            <p className="mt-2 text-neutral-700 dark:text-neutral-300">Open tooling to compute spin‑resolved deep‑microscopic optical bandstructure and super‑dispersive optical gyrotropy from current–current correlations with full lattice momentum‑exchange processes. Built for chiral materials (e.g., tellurium) and extensible to general crystalline systems.</p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Chip>Optical indicators (α<sub>T</sub>)</Chip>
               <Chip>Spin texture (DoCP)</Chip>
@@ -419,7 +407,7 @@
             </div>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href="#" className="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">Link (under construction)</a>
-              <a href="#/contact" className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">Collaborate</a>
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">Collaborate</a>
             </div>
           </div>
           <Card title="Highlights" subtitle="What it enables">
@@ -480,44 +468,44 @@
       );
     }
 
-    // ---------- Pages ----------
-    function HomePage() {
+    function Section({ id, title, children }) {
       return (
-        <>
-          <Hero profile={profile} documents={documents} />
-          <Section id="about" title="About"><About affiliations={profile.affiliations} /></Section>
-          <Section id="awards" title="Awards"><AwardsList items={awards} /></Section>
-          <Section id="docs" title="Resume, CV & Documents"><DocsList docs={documents} /></Section>
-          <Section id="contact" title="Contact"><ContactBlock profile={profile} /></Section>
-        </>
+        <section id={id} className="scroll-mt-20 py-12">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white" />
+            <h2 className="text-xl font-semibold sm:text-2xl">{title}</h2>
+          </div>
+          {children}
+        </section>
       );
     }
 
-    function ResearchPage() {
+    function Footer({ name }) {
       return (
-        <>
-          <Section id="research" title="Research"><ResearchGrid items={research} /></Section>
-        </>
+        <footer className="my-16 text-center text-sm text-neutral-500 dark:text-neutral-400">
+          <p>© {new Date().getFullYear()} {name}. All Rights Reserved.</p>
+        </footer>
       );
     }
 
-    function PublicationsPage() {
+    function Card({ title, subtitle, children }) {
       return (
-        <>
-          <Section id="publications" title="Selected Publications"><PublicationsList pubs={publications} /></Section>
-        </>
+        <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="border-b border-neutral-200/70 p-4 dark:border-neutral-800">
+            <h3 className="text-base font-semibold leading-tight">{title}</h3>
+            {subtitle && (<p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{subtitle}</p>)}
+          </div>
+          {children}
+        </div>
       );
     }
 
-    function SoftwarePage() {
+    function Chip({ children }) {
       return (
-        <>
-          <Section id="software" title="Software: Purdue-PicoMax"><SoftwareBlock /></Section>
-        </>
+        <span className="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">{children}</span>
       );
     }
 
-    // ---------- Mount ----------
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
