@@ -220,17 +220,19 @@
         <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/70 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
             <a href="#top" className="font-semibold tracking-tight">{name}</a>
-            <nav className="hidden gap-6 sm:flex">
-              {nav.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+            <nav className="flex gap-4 sm:gap-6 overflow-x-auto whitespace-nowrap"
+                aria-label="Main"
+              >
+                {nav.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
             <ThemeSwitch dark={dark} setDark={setDark} />
           </div>
         </header>
