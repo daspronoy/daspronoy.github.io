@@ -26,7 +26,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pronoy Das — Quantum Optics, Structured Light & Chiral Photonics" />
   <meta name="twitter:description" content="Structured light (STOVs, OAM), chiral tellurium photonics, deep-microscopic electrodynamics, and NV-center metrology." />
-  <meta name="twitter:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
+  <meta name="twitter:image" content="https://daspronoy.github.io/assets/Pronoy.jpeg" />
 
   <!-- Performance -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
@@ -45,7 +45,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Pronoy Das",
-    "image": "https://daspronoy.github.io/assets/Pronoy.webp",
+    "image": "https://daspronoy.github.io/assets/Pronoy.jpeg",
     "url": "https://daspronoy.github.io/",
     "jobTitle": "Donnan Fellow, Graduate Research Assistant",
     "affiliation": [
@@ -84,14 +84,26 @@
 <body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
   <!-- Site Header -->
   <header class="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/70 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60">
-    <div class="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+    <div class="relative mx-auto flex max-w-[1180px] items-center justify-between px-3 py-3 sm:px-4 lg:px-6">
       <a href="#top" class="font-semibold tracking-tight">Pronoy Das</a>
 
       <!-- Desktop nav -->
-      <nav class="hidden gap-4 sm:gap-6 md:flex" aria-label="Main navigation">
-        <a href="research.html" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">Research</a>
-        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">Publications</a>
-       </nav>
+      <nav class="hidden md:flex items-center gap-5 lg:gap-7" aria-label="Main navigation">
+        <div class="flex items-center gap-4 lg:gap-6">
+          <a href="#about" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">About</a>
+          <a href="#awards" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">Awards</a>
+          <a href="#software" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">Software</a>
+          <a href="#docs" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">Docs</a>
+          <a href="#contact" class="text-sm text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white px-0.5">Contact</a>
+        </div>
+
+        <div class="h-5 w-px bg-neutral-200 dark:bg-neutral-800"></div>
+
+        <div class="flex items-center gap-4 lg:gap-6">
+          <a href="research.html" class="text-sm font-semibold text-neutral-900 transition hover:text-neutral-900 dark:text-white dark:hover:text-white px-0.5">Research</a>
+          <a href="publications.html" class="text-sm font-semibold text-neutral-900 transition hover:text-neutral-900 dark:text-white dark:hover:text-white px-0.5">Publications</a>
+        </div>
+      </nav>
 
       <div class="flex items-center gap-2 md:gap-3">
         <!-- Mobile menu button -->
@@ -138,19 +150,25 @@
       <!-- Mobile dropdown -->
       <div
         id="mobile-menu"
-        class="absolute right-4 top-14 hidden w-64 origin-top-right rounded-2xl border border-neutral-200 bg-white p-2 shadow-lg dark:border-neutral-800 dark:bg-neutral-900 md:hidden"
+        class="absolute right-4 top-14 hidden w-72 origin-top-right rounded-2xl border border-neutral-200 bg-white p-2 shadow-lg dark:border-neutral-800 dark:bg-neutral-900 md:hidden"
       >
-       <a href="research.html" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Research</a>
-       </div>
+        <a href="#about" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">About</a>
+        <a href="research.html" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Research</a>
+        <a href="publications.html" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Publications</a>
+        <a href="#awards" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Awards</a>
+        <a href="#software" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Software</a>
+        <a href="#docs" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Docs</a>
+        <a href="#contact" class="block rounded-xl px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800">Contact</a>
+      </div>
     </div>
   </header>
 
-  <main id="top" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+  <main id="top" class="mx-auto max-w-[1180px] px-3 sm:px-4 lg:px-6">
     <!-- Hero -->
     <section class="relative isolate">
       <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_40%),radial-gradient(ellipse_at_bottom,rgba(16,185,129,0.12),transparent_40%)]"></div>
 
-      <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 pb-8 pt-10 sm:px-6 md:grid-cols-[1fr,320px] lg:px-8 lg:pt-16">
+      <div class="mx-auto grid grid-cols-1 items-center gap-10 pb-8 pt-10 md:grid-cols-[1fr,360px] lg:pt-16">
         <div>
           <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white px-3 py-1 text-xs font-medium shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
             <span class="relative inline-flex h-2.5 w-2.5">
@@ -165,27 +183,33 @@
             Donnan Fellow | Graduate Research Assistant
           </p>
 
-          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+          <p class="mt-4 max-w-[70ch] text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
             I work on quantum optics and quantum nanophotonics: structured light (STOVs, OAM), photonic angular momentum,
             and deep-microscopic electrodynamics in quantum materials, with emphasis on chiral tellurium and NV-center quantum sensing.
           </p>
 
           <div class="mt-5 flex flex-wrap items-center gap-3">
+            <a href="research.html" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+              Research →
+            </a>
+            <a href="publications.html" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+              Publications →
+            </a>
             <a href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
               ↗ LinkedIn
             </a>
             <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
               ↗ Google Scholar
             </a>
-            <a href="docs/resume_git.pdf" class="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">
-              Resume (PDF)
+            <a href="docs/CV.pdf" class="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">
+              CV (PDF)
             </a>
           </div>
         </div>
 
         <div class="justify-self-center md:justify-self-end">
-          <div class="relative h-40 w-40 overflow-hidden rounded-3xl ring-1 ring-neutral-200 shadow-sm dark:ring-neutral-800 md:h-56 md:w-56">
-            <img src="assets/Pronoy.webp" alt="Headshot of Pronoy Das" class="h-full w-full object-cover" />
+          <div class="relative h-44 w-44 overflow-hidden rounded-3xl ring-1 ring-neutral-200 shadow-sm dark:ring-neutral-800 md:h-64 md:w-64">
+            <img src="assets/Pronoy.jpeg" alt="Headshot of Pronoy Das" class="h-full w-full object-cover" />
             <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5"></div>
           </div>
         </div>
@@ -193,7 +217,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="scroll-mt-20 py-12">
+    <section id="about" class="scroll-mt-24 py-12">
       <div class="mb-6 flex items-center gap-3">
         <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
         <h2 class="text-xl font-semibold sm:text-2xl">About</h2>
@@ -243,8 +267,164 @@
       </div>
     </section>
 
+    <!-- Research preview (link-outs) -->
+    <section class="py-12">
+      <div class="mb-6 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
+          <h2 class="text-xl font-semibold sm:text-2xl">Research highlights</h2>
+        </div>
+        <a href="research.html" class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+          View all →
+        </a>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="research.html#flagship" class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="border-b border-neutral-200/70 p-4 dark:border-neutral-800">
+            <h3 class="text-base font-semibold leading-tight">Chiral tellurium, deep-microscopic optics</h3>
+            <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              Spin-resolved optical bandstructure, nonlocal response, and microscopic origin of gyrotropy.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 p-4 pt-0">
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Nonlocal response</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Spin texture</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Gyrotropy</span>
+          </div>
+          <div class="px-4 pb-4">
+            <span class="text-xs font-semibold text-neutral-800 group-hover:underline dark:text-neutral-200">Explore →</span>
+          </div>
+        </a>
+
+        <a href="research.html#flagship" class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="border-b border-neutral-200/70 p-4 dark:border-neutral-800">
+            <h3 class="text-base font-semibold leading-tight">Quantum STOVs and OAM fluctuations</h3>
+            <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              Beyond-paraxial quantum structured light with 3D OAM noise textures.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 p-4 pt-0">
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">STOV</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">OAM noise</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Quantum optics</span>
+          </div>
+          <div class="px-4 pb-4">
+            <span class="text-xs font-semibold text-neutral-800 group-hover:underline dark:text-neutral-200">Explore →</span>
+          </div>
+        </a>
+
+        <a href="research.html#methods" class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="border-b border-neutral-200/70 p-4 dark:border-neutral-800">
+            <h3 class="text-base font-semibold leading-tight">Operators, commutators, and observables</h3>
+            <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              Gauge-consistent photonic angular momentum definitions used in structured-light theory.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 p-4 pt-0">
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">SAM/OAM</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Gauge invariance</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Operators</span>
+          </div>
+          <div class="px-4 pb-4">
+            <span class="text-xs font-semibold text-neutral-800 group-hover:underline dark:text-neutral-200">Explore →</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-6 sm:hidden">
+        <a href="research.html" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+          View all research →
+        </a>
+      </div>
+    </section>
+
+    <!-- Publications preview -->
+    <section class="py-12">
+      <div class="mb-6 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
+          <h2 class="text-xl font-semibold sm:text-2xl">Selected publications</h2>
+        </div>
+        <a href="publications.html" class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+          View all →
+        </a>
+      </div>
+
+      <div class="space-y-4">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-base font-semibold leading-snug">
+                Quantum Theory of Optical Spin Texture in Chiral Tellurium Lattice
+              </h3>
+              <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+                Preprint · 2025
+              </p>
+              <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+                Spin-resolved deep-microscopic optical bandstructure revealing lattice-scale optical eigenwaves and spin textures in chiral tellurium.
+              </p>
+            </div>
+            <div class="shrink-0">
+              <a href="publications.html#tellurium-spin-texture" class="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-base font-semibold leading-snug">
+                Quantum theory of orbital angular momentum fluctuations in spatiotemporal optical vortices
+              </h3>
+              <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+                New J. Phys. 26 083008 · 2024
+              </p>
+              <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+                Quantum framework for STOVs beyond paraxiality, with 3D OAM noise and real-space noise textures.
+              </p>
+            </div>
+            <div class="shrink-0">
+              <a href="publications.html#stov-oam-noise" class="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-base font-semibold leading-snug">
+                What are the quantum commutation relations for the total angular momentum of light? (Tutorial)
+              </h3>
+              <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+                JOSA B 41(8) · 2024
+              </p>
+              <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+                Operator definitions and commutators for photonic angular momentum with emphasis on observable fields.
+              </p>
+            </div>
+            <div class="shrink-0">
+              <a href="publications.html#photon-am-tutorial" class="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 sm:hidden">
+        <a href="publications.html" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+          View all publications →
+        </a>
+      </div>
+    </section>
+
     <!-- Awards -->
-    <section id="awards" class="scroll-mt-20 py-12">
+    <section id="awards" class="scroll-mt-24 py-12">
       <div class="mb-6 flex items-center gap-3">
         <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
         <h2 class="text-xl font-semibold sm:text-2xl">Awards</h2>
@@ -285,8 +465,55 @@
       </div>
     </section>
 
+    <!-- Software -->
+    <section id="software" class="scroll-mt-24 py-12">
+      <div class="mb-6 flex items-center gap-3">
+        <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
+        <h2 class="text-xl font-semibold sm:text-2xl">Software: Purdue-PicoMax</h2>
+      </div>
+
+      <div class="grid items-start gap-6 md:grid-cols-[1.2fr,0.8fr]">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <h3 class="text-lg font-semibold">Purdue-PicoMax</h3>
+          <p class="mt-2 text-neutral-700 dark:text-neutral-300">
+            Tooling to compute spin-resolved deep-microscopic optical bandstructure and strongly dispersive optical gyrotropy from
+            current-current correlations with lattice momentum-exchange processes. Built for chiral materials such as tellurium and
+            extensible to general crystalline systems.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-3">
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Optical indicators</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">DoCP spin texture</span>
+            <span class="inline-flex items-center rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-800 dark:border-neutral-700 dark:text-neutral-200">Nonlocal response σ(q,ω)</span>
+          </div>
+
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="research.html#methods" class="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900">
+              Methods →
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+              Collaborate
+            </a>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="border-b border-neutral-200/70 p-4 dark:border-neutral-800">
+            <h3 class="text-base font-semibold leading-tight">Highlights</h3>
+            <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">What it enables</p>
+          </div>
+          <ul class="space-y-2 p-4 pt-0 text-sm text-neutral-700 dark:text-neutral-300">
+            <li>• Nonlocal optical response in 3D materials.</li>
+            <li>• Direct access to super-dispersive optical gyrotropy in chiral systems.</li>
+            <li>• Exposes hidden optical waves inside the unit cell.</li>
+            <li>• Extensible pipeline for crystalline photonic observables.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- Docs -->
-    <section id="docs" class="scroll-mt-20 py-12">
+    <section id="docs" class="scroll-mt-24 py-12">
       <div class="mb-6 flex items-center gap-3">
         <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
         <h2 class="text-xl font-semibold sm:text-2xl">Resume, CV and Documents</h2>
@@ -326,7 +553,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="scroll-mt-20 py-12">
+    <section id="contact" class="scroll-mt-24 py-12">
       <div class="mb-6 flex items-center gap-3">
         <div class="h-6 w-1.5 rounded bg-neutral-900 dark:bg-white"></div>
         <h2 class="text-xl font-semibold sm:text-2xl">Contact</h2>
@@ -344,6 +571,9 @@
             </a>
             <a href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
               LinkedIn
+            </a>
+            <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+              Google Scholar
             </a>
           </div>
         </div>
@@ -363,7 +593,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="my-16 text-center text-sm text-neutral-500 dark:text-neutral-400">
+    <footer class="my-14 text-center text-sm text-neutral-500 dark:text-neutral-400">
       <p>© <span id="year"></span> Pronoy Das. All Rights Reserved.</p>
     </footer>
   </main>
