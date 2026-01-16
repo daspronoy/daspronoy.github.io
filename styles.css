@@ -334,6 +334,17 @@ body::after{
   letter-spacing: -0.01em;
 }
 
+/* Push desktop nav to the right */
+.nav-desktop{
+  margin-left: auto;
+}
+
+/* Optional: add spacing between nav and mobile icon area */
+.header-actions{
+  margin-left: 14px;
+}
+
+
 @media (min-width: 640px){
   .section-title{ font-size: 26px; }
 }
