@@ -1,4 +1,4 @@
-/* styles.css */
+/* styles.css (combined for index.html + research.html) */
 
 :root{
   --bg: #0a0a0a;
@@ -106,6 +106,7 @@ body::after{
   display: none;
   gap: 18px;
   align-items: center;
+  margin-left: auto;
 }
 
 @media (min-width: 768px){
@@ -126,6 +127,7 @@ body::after{
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: 14px;
 }
 
 /* Icon button (mobile) */
@@ -176,6 +178,13 @@ body::after{
 
 .mobile-link:hover{
   background: rgba(255,255,255,0.06);
+}
+
+.mobile-divider{
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+  margin: 6px 6px;
+  border-radius: 999px;
 }
 
 /* Hero */
@@ -334,17 +343,6 @@ body::after{
   letter-spacing: -0.01em;
 }
 
-/* Push desktop nav to the right */
-.nav-desktop{
-  margin-left: auto;
-}
-
-/* Optional: add spacing between nav and mobile icon area */
-.header-actions{
-  margin-left: 14px;
-}
-
-
 @media (min-width: 640px){
   .section-title{ font-size: 26px; }
 }
@@ -424,6 +422,11 @@ body::after{
   gap: 10px;
 }
 
+.chips-compact{
+  margin-top: 12px;
+  grid-auto-rows: min-content;
+}
+
 .chip{
   display: inline-flex;
   align-items: center;
@@ -473,7 +476,7 @@ body::after{
   background: rgba(255,255,255,0.92);
 }
 
-/* Docs grid */
+/* Docs grid (index.html) */
 .grid-cards{
   display: grid;
   gap: 14px;
@@ -518,6 +521,105 @@ body::after{
   text-align: center;
   font-size: 13px;
   color: rgba(255,255,255,0.62);
+}
+
+/* ----------------------------- */
+/* Research page additions only   */
+/* ----------------------------- */
+
+.hero-research .hero-right{
+  align-self: start;
+}
+
+.research-sidebar{
+  width: 100%;
+}
+
+.grid-3{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px){
+  .grid-3{ grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+@media (min-width: 1024px){
+  .grid-3{ grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+}
+
+/* Flagship projects layout */
+.project-top{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px){
+  .project-top{
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+  }
+}
+
+.project-action{
+  flex: 0 0 auto;
+}
+
+.project-metrics{
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px){
+  .project-metrics{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1024px){
+  .project-metrics{ grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.metric{
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.16);
+  padding: 12px;
+}
+
+.metric-kicker{
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.76);
+}
+
+.metric-value{
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.86);
+}
+
+.tag-row{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag{
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 4px 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.82);
+  background: rgba(0,0,0,0.14);
 }
 
 /* Respect reduced motion */
