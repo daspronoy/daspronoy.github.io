@@ -1,21 +1,20 @@
-<!-- research.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Research | Pronoy Das</title>
+  <title>Research &amp; Publications | Pronoy Das</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Research by Pronoy Das in quantum optics and quantum nanophotonics: structured light (STOVs, OAM), deep-microscopic electrodynamics, chiral tellurium optical spin texture, and NV-center metrology." />
+  <meta name="description" content="Research by Pronoy Das: machine learning and optimization on physical hardware, CUDA/GPU performance engineering, quantum optics of structured light, chiral tellurium photonics, and NV-center quantum sensing. Full publication list." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://daspronoy.github.io/research.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daspronoy.github.io/research.html" />
-  <meta property="og:title" content="Research | Pronoy Das" />
-  <meta property="og:description" content="Quantum optics and quantum nanophotonics: structured light, chiral photonics, deep-microscopic optical bandstructure, and NV-center quantum sensing." />
+  <meta property="og:title" content="Research &amp; Publications | Pronoy Das" />
+  <meta property="og:description" content="ML + optimization for physical systems, GPU performance engineering, quantum optics of structured light, chiral photonics, and NV-center quantum sensing." />
   <meta property="og:site_name" content="Pronoy Das" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
@@ -23,478 +22,274 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Research | Pronoy Das" />
-  <meta name="twitter:description" content="Quantum optics and quantum nanophotonics: structured light, chiral photonics, deep-microscopic optical bandstructure, and NV-center quantum sensing." />
+  <meta name="twitter:title" content="Research &amp; Publications | Pronoy Das" />
+  <meta name="twitter:description" content="ML + optimization for physical systems, GPU performance engineering, quantum optics, and NV-center quantum sensing." />
   <meta name="twitter:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
 
-  <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Research | Pronoy Das",
-    "url":"https://daspronoy.github.io/research.html",
-    "isPartOf":{"@type":"WebSite","name":"Pronoy Das","url":"https://daspronoy.github.io/"},
-    "about":[
-      "Quantum optics",
-      "Structured light",
-      "Spatiotemporal optical vortices (STOVs)",
-      "Orbital angular momentum (OAM)",
-      "Deep-microscopic electrodynamics",
-      "Chiral photonics (tellurium)",
-      "NV-center quantum metrology"
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Research & Publications | Pronoy Das",
+    "url": "https://daspronoy.github.io/research.html",
+    "isPartOf": {"@type": "WebSite", "name": "Pronoy Das", "url": "https://daspronoy.github.io/"},
+    "about": [
+      "Machine learning for physical systems",
+      "Diffusion models and energy-based models",
+      "Ising and combinatorial optimization",
+      "CUDA and GPU computing",
+      "Quantum optics and structured light",
+      "Chiral photonics in tellurium",
+      "NV-center quantum sensing"
     ]
   }
   </script>
 </head>
 
 <body>
-  <!-- Site Header (matches index.html) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">Pronoy Das</a>
-
-      <!-- Desktop nav -->
-      <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="index.html" class="nav-link">Bio</a>
-        <a href="research.html" class="nav-link">Research</a>
-        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" class="nav-link">Publications</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="research.html" class="nav-link" aria-current="page">Research</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="docs/resume.pdf" class="nav-link">Resume</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
       </nav>
-
-      <div class="header-actions">
-        <!-- Mobile menu button -->
-        <button
-          type="button"
-          id="mobile-menu-button"
-          class="icon-button"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile dropdown -->
-      <div id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
-        <a href="index.html" class="mobile-link" role="menuitem">Bio</a>
-        <a href="research.html" class="mobile-link" role="menuitem">Research</a>
-        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" class="mobile-link" role="menuitem">Publications</a>
-        <div class="mobile-divider" aria-hidden="true"></div>
-        <a href="index.html#about" class="mobile-link" role="menuitem">About</a>
-        <a href="index.html#awards" class="mobile-link" role="menuitem">Awards</a>
-        <a href="index.html#docs" class="mobile-link" role="menuitem">Docs</a>
-        <a href="index.html#contact" class="mobile-link" role="menuitem">Contact</a>
-      </div>
     </div>
   </header>
 
-  <main id="top" class="container">
-    <!-- Research Hero (adapts index.html hero style) -->
-    <section class="hero hero-research">
-      <div class="hero-grid">
-        <div class="hero-left">
-          <div class="status-pill">
-            <span class="ping-wrap" aria-hidden="true">
-              <span class="ping"></span>
-              <span class="dot"></span>
-            </span>
-            Currently seeking full-time positions
-          </div>
-
-          <h1 class="hero-title">Research</h1>
-          <p class="hero-subtitle">Deep-microscopic electrodynamics, and quantum optics of structured light</p>
-
-          <p class="hero-blurb">
-            I work on quantum optics and quantum nanophotonics: structured light (STOVs, OAM), photonic angular momentum, and deep-microscopic electrodynamics in quantum materials, with emphasis on chiral tellurium and NV-center quantum sensing.
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn btn-outline" href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" target="_blank" rel="noreferrer">↗ Google Scholar</a>
-            <a class="btn btn-outline" href="index.html#contact">Contact</a>
-            <a class="btn btn-solid" href="docs/resume_git.pdf">Resume (PDF)</a>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="card research-sidebar">
-            <div class="card-head">
-              <h2 class="card-title">Core areas</h2>
-              <p class="card-subtitle">What the work centers on</p>
-            </div>
-            <ul class="bullets muted">
-              <li>Structured light and photonic angular momentum (SAM/OAM)</li>
-              <li>Deep-microscopic optical bandstructure in crystals</li>
-              <li>Chiral photonics in tellurium (optical gyrotropy, spin texture)</li>
-              <li>Quantum metrology with NV centers in diamond</li>
-              <li>Theory + computation, from operators to scalable numerics</li>
-            </ul>
-          </div>
-        </div>
+  <main class="container">
+    <!-- Intro -->
+    <section class="hero">
+      <h1 class="hero-title">Research</h1>
+      <p class="hero-blurb">
+        My work spans three connected layers: <strong>algorithms</strong> (generative models and optimization grounded
+        in statistical physics), <strong>systems</strong> (CUDA kernels and simulation software that make those ideas
+        run fast on real hardware), and <strong>theory</strong> (quantum optics and light–matter interaction at the
+        level of first principles). Below are the major projects, followed by the full publication list.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#publications">Publications</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+        <a class="btn" href="docs/resume.pdf">Resume (PDF)</a>
       </div>
     </section>
 
-    <!-- Research Themes -->
-    <section id="themes" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Research themes</h2>
-      </div>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2 class="section-title">Projects</h2>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Deep-microscopic electrodynamics</h3>
-            <p class="card-subtitle">Nonlocal response functions and lattice-momentum exchange.</p>
-          </div>
-          <p class="muted">
-            Nonlocal response functions and lattice-momentum exchange to access optical eigenwaves inside the unit cell.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Nonlocal σ(q,ω)</span>
-            <span class="chip">Current-current correlations</span>
-            <span class="chip">Hidden optical waves</span>
-          </div>
+      <article class="project">
+        <h3>Amortized sampling for Boltzmann machines on an optical Ising machine</h3>
+        <p class="project-venue">Sandia National Laboratories, Center for Integrated Nanotechnologies · 2026 – ongoing</p>
+        <p>
+          Sampling from energy-based models like Boltzmann machines is a core bottleneck in generative modeling.
+          I am building an amortized sampler based on correlated diffusion, realized on a continuous-variable
+          optical Ising system engineered for fully frustrated (spin-glass) couplings — using physical hardware
+          to attack hard sampling and combinatorial optimization problems that are expensive for conventional
+          Monte Carlo methods.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Diffusion models</span>
+          <span class="tag">Energy-based models</span>
+          <span class="tag">Ising optimization</span>
+          <span class="tag">Optical computing</span>
+          <span class="tag">PyTorch</span>
         </div>
+      </article>
 
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Chiral tellurium photonics</h3>
-            <p class="card-subtitle">Spin-resolved optical bandstructure and gyrotropy.</p>
-          </div>
-          <p class="muted">
-            Spin-resolved optical bandstructure explaining optical gyrotropy and lattice-scale optical spin textures.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Optical bandstructure</span>
-            <span class="chip">DoCP / spin texture</span>
-            <span class="chip">Gyrotropy dispersion</span>
-          </div>
+      <article class="project">
+        <h3>Near real-time faint-object detection on GPUs</h3>
+        <p class="project-venue">Zetascope LLC · 2026</p>
+        <p>
+          Detecting faint moving objects in image streams where the per-frame signal sits below the noise floor
+          requires integrating intensity along millions of candidate trajectories — a brute-force compute problem.
+          I developed a low-power, field-deployable detection pipeline that runs in near real-time on quantum
+          shot-noise-limited images, hand-optimizing CUDA C++ kernels on the NVIDIA Blackwell architecture for a
+          ~108&times; runtime reduction, with memory-hierarchy and roofline analysis guiding the optimization.
+        </p>
+        <div class="tag-row">
+          <span class="tag">CUDA C++</span>
+          <span class="tag">Kernel optimization</span>
+          <span class="tag">Roofline analysis</span>
+          <span class="tag">Edge deployment</span>
         </div>
+      </article>
 
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Quantum structured light</h3>
-            <p class="card-subtitle">STOVs beyond paraxial and 3D OAM noise.</p>
-          </div>
-          <p class="muted">
-            Quantum states of STOVs beyond the paraxial regime and 3D orbital angular momentum fluctuations.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">STOVs</span>
-            <span class="chip">OAM noise texture</span>
-            <span class="chip">Fock / coherent pulses</span>
-          </div>
+      <article class="project">
+        <h3>Deep-microscopic optical band theory of chiral tellurium</h3>
+        <p class="project-venue">Purdue University, Jacob Group · 2024 – 2025 · <em>Phys. Rev. B</em> Letter, Editor's Suggestion</p>
+        <p>
+          Tellurium's optical activity is known experimentally to diverge near the band edge, but decades of
+          first-principles attempts failed to reproduce it because optical gyrotropy is intrinsically a
+          finite-momentum effect. I built the first fully quantum, lattice-resolved optical band structure of chiral
+          tellurium, solved the dispersion problem with quantitative agreement against experiment across the
+          mid-infrared, and uncovered hidden optical waves and optical spin textures inside the lattice.
+        </p>
+        <p>
+          Alongside the theory, I co-authored <strong>Purdue-PicoMax</strong>, an open-source C++ package for
+          nonlocal optical response in crystals that reaches ~5&times; lower error than existing methods; its
+          predictions were later validated by electron-energy-loss measurements
+          (<a href="https://arxiv.org/abs/2510.07612">arXiv:2510.07612</a>).
+        </p>
+        <div class="tag-row">
+          <span class="tag">First-principles theory</span>
+          <span class="tag">C++ scientific software</span>
+          <span class="tag">Sparse eigensolvers</span>
+          <span class="tag">Condensed-matter optics</span>
         </div>
+      </article>
 
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Photon AM fundamentals</h3>
-            <p class="card-subtitle">Gauge-invariant operators and commutators.</p>
-          </div>
-          <p class="muted">
-            Gauge-invariant operators and commutation relations for observable Maxwell fields.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Generators of rotations</span>
-            <span class="chip">Gauge-invariance</span>
-            <span class="chip">SAM/OAM</span>
-          </div>
+      <article class="project">
+        <h3>Quantum theory of structured light</h3>
+        <p class="project-venue">Purdue University, Jacob Group · 2022 – 2024 · <em>New J. Phys.</em> &amp; <em>JOSA B</em></p>
+        <p>
+          Settled a long-standing debate on the correct quantum commutation relations for the angular momentum of
+          light — a result with a widely propagated textbook error at its center — in a tutorial that was JOSA B's
+          most-downloaded article for three consecutive months. Built the first quantum field theory of
+          spatiotemporal optical vortices beyond the paraxial limit, predicting a previously unrecognized,
+          experimentally accessible quantum fluctuation in their orbital angular momentum.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Quantum field theory</span>
+          <span class="tag">Quantum optics</span>
+          <span class="tag">Orbital angular momentum</span>
         </div>
+      </article>
 
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Quantum sensing with NV centers</h3>
-            <p class="card-subtitle">Spin-photon interfaces and ODMR.</p>
-          </div>
-          <p class="muted">
-            Spin-photon interfaces and instrumentation for ODMR at shallow depths and cryogenic operation.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Sagnac modulation</span>
-            <span class="chip">Shallow NV (~30 nm)</span>
-            <span class="chip">ODMR</span>
-          </div>
+      <article class="project">
+        <h3>Quantum sensing with NV centers in diamond</h3>
+        <p class="project-venue">Purdue University, Jacob Group · 2021 – 2022 · multiple co-authored articles</p>
+        <p>
+          Built experimental infrastructure for single spin-qubit control and readout: co-designed a cryogenic
+          confocal microscope for optically-detected magnetic resonance, created shallow NV defects (~30 nm from the
+          surface) via ion implantation and annealing, and developed a GHz phase/amplitude modulation setup for
+          spin-textured light using temperature-controlled fiber Sagnac interferometry. This infrastructure underpins
+          published measurements of photonic spin texture with NV-center quantum sensors.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Spin qubits</span>
+          <span class="tag">ODMR</span>
+          <span class="tag">Cryogenics</span>
+          <span class="tag">Nanofabrication</span>
+          <span class="tag">Interferometry</span>
         </div>
+      </article>
 
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Microwave photonics and cryogenic ESR</h3>
-            <p class="card-subtitle">Resonator design and field confinement.</p>
-          </div>
-          <p class="muted">
-            Field confinement and resonator design for ESR readout at low temperatures.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Spoof plasmons</span>
-            <span class="chip">ESR down to 10 K</span>
-            <span class="chip">CST / EM design</span>
-          </div>
+      <article class="project">
+        <h3>Microwave resonators for cryogenic spin spectroscopy</h3>
+        <p class="project-venue">IISER Kolkata, Mitra Group · 2019 – 2021 · <em>J. Phys. D</em> &amp; <em>IOP SciNotes</em></p>
+        <p>
+          Designed (CST Studio), fabricated (UV photolithography), and characterized on-chip microwave resonators —
+          a short-circuited coplanar waveguide and a localized spoof-surface-plasmon structure — as the field-concentrating
+          elements of home-built electron spin resonance spectrometers operating from room temperature down to 10 K.
+        </p>
+        <div class="tag-row">
+          <span class="tag">RF/microwave design</span>
+          <span class="tag">EM simulation</span>
+          <span class="tag">Photolithography</span>
+          <span class="tag">ESR spectroscopy</span>
         </div>
-      </div>
+      </article>
     </section>
 
-    <!-- Flagship Projects -->
-    <section id="flagship" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Flagship projects</h2>
-      </div>
+    <!-- Publications -->
+    <section class="section" id="publications">
+      <h2 class="section-title">Publications</h2>
+      <p class="section-intro">
+        First-author papers are marked. The live, complete list is on
+        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a>.
+      </p>
 
-      <div class="stack">
-        <article class="card">
-          <div class="project-top">
-            <div>
-              <h3 class="card-title">Spin-resolved deep-microscopic optical bandstructure in chiral tellurium</h3>
-              <p class="muted">
-                Developed a quantum, lattice-resolved framework to compute optical eigenwaves inside a crystal, including momentum-exchange
-                processes with the lattice. This yields a spin-resolved optical bandstructure and exposes hidden optical waves with
-                deep-microscopic spin textures. In the small-momentum limit, the splitting of dominant optical indicators connects directly
-                to observed optical gyrotropy, enabling quantitative agreement with experiment.
-              </p>
-            </div>
-            <div class="project-action">
-              <a class="btn btn-solid" href="https://arxiv.org/abs/2506.21610">Related paper →</a>
-            </div>
-          </div>
-
-          <div class="project-metrics">
-            <div class="metric">
-              <p class="metric-kicker">Core output</p>
-              <p class="metric-value">Optical bandstructure + hidden eigenwaves</p>
-            </div>
-            <div class="metric">
-              <p class="metric-kicker">Physics</p>
-              <p class="metric-value">Finite-momentum origin of gyrotropy</p>
-            </div>
-            <div class="metric">
-              <p class="metric-kicker">Observable</p>
-              <p class="metric-value">DoCP and in-unit-cell spin texture</p>
-            </div>
-          </div>
-
-          <div class="tag-row">
-            <span class="tag">Nonlocal response</span>
-            <span class="tag">SILC / optical indicators</span>
-            <span class="tag">Chiral Te</span>
-            <span class="tag">Optical gyrotropy</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="project-top">
-            <div>
-              <h3 class="card-title">Quantum theory of orbital angular momentum fluctuations in spatiotemporal optical vortices</h3>
-              <p class="muted">
-                Developed a quantum framework for STOVs with arbitrary tilt beyond the paraxial regime, enabling simultaneous transverse and
-                longitudinal OAM components. Identified a uniquely STOV-specific signature: non-vanishing longitudinal OAM noise. Defined
-                the OAM noise density as a spatially and temporally evolving texture that can be probed experimentally.
-              </p>
-            </div>
-            <div class="project-action">
-              <a class="btn btn-solid" href="https://iopscience.iop.org/article/10.1088/1367-2630/ad692a/meta">Related paper →</a>
-            </div>
-          </div>
-
-          <div class="project-metrics">
-            <div class="metric">
-              <p class="metric-kicker">Key result</p>
-              <p class="metric-value">3D quantum OAM fluctuations</p>
-            </div>
-            <div class="metric">
-              <p class="metric-kicker">States</p>
-              <p class="metric-value">Fock and coherent twisted pulses</p>
-            </div>
-            <div class="metric">
-              <p class="metric-kicker">Experimental hook</p>
-              <p class="metric-value">Noise density texture in real space</p>
-            </div>
-          </div>
-
-          <div class="tag-row">
-            <span class="tag">STOVs</span>
-            <span class="tag">OAM noise</span>
-            <span class="tag">Beyond paraxial</span>
-            <span class="tag">Quantum optics</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="project-top">
-            <div>
-              <h3 class="card-title">Photon angular momentum: operators, commutators, and gauge-invariant observables</h3>
-              <p class="muted">
-                Fundamental operator structure for photonic angular momentum to ensure theoretical quantities map cleanly onto observable
-                field degrees of freedom. This underpins consistent modeling of structured light, including OAM-bearing states and their
-                quantum fluctuations.
-              </p>
-            </div>
-            <div class="project-action">
-              <a class="btn btn-outline" href="https://opg.optica.org/josab/fulltext.cfm?uri=josab-41-8-1764">Related tutorial →</a>
-            </div>
-          </div>
-
-          <div class="project-metrics">
-            <div class="metric">
-              <p class="metric-kicker">Focus</p>
-              <p class="metric-value">Gauge-invariant definitions</p>
-            </div>
-            <div class="metric">
-              <p class="metric-kicker">Deliverable</p>
-              <p class="metric-value">Clean SAM/OAM decomposition</p>
-            </div>
-            <div class="metric">
-              <p class="metric-kicker">Use</p>
-              <p class="metric-value">Structured-light theory and modeling</p>
-            </div>
-          </div>
-        </article>
-      </div>
+      <ul class="pub-list">
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1103/PhysRevB.113.L041116">Quantum Theory of Optical Spin Texture in Chiral Tellurium Lattice</a>
+            <span class="badge">First author</span> <span class="badge">Letter · Editor's Suggestion</span>
+          </p>
+          <p class="pub-meta"><strong>Das P.</strong>, Bharadwaj S., Mun J., Wang X., Rho J. &amp; Jacob Z. — <em>Physical Review B</em> 113, L041116 (2026)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://arxiv.org/abs/2510.07612">Observation of Crystalline Nonlocal Volume Plasmon Waves</a>
+          </p>
+          <p class="pub-meta">Bharadwaj S., Schreiber M., Mun J., Ruttiman S., <strong>Das P.</strong>, Hayashida M., Malac M., Nordlander P. &amp; Jacob Z. — <em>arXiv:2510.07612</em> (2025)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1364/JOSAB.579385">Coherent coupling of spinning light and NV centers in diamond</a>
+          </p>
+          <p class="pub-meta">Mahmud S., Kalhor F., <strong>Das P.</strong> &amp; Jacob Z. — <em>Journal of the Optical Society of America B</em> 43(1) (2025)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1088/1367-2630/add55a">Quantum imaging of photonic spin texture in an OAM beam with NV centers in diamonds</a>
+          </p>
+          <p class="pub-meta">Mahmud S., Zhang W., Kalhor F., <strong>Das P.</strong> &amp; Jacob Z. — <em>New Journal of Physics</em> 27, 054102 (2025)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1088/1367-2630/ad7c72">New angular momentum conservation laws for electromagnetic waves interacting with Dirac fields</a>
+            <span class="badge">Most-read, Sep–Oct 2024</span>
+          </p>
+          <p class="pub-meta">Khosravi F., Yang L.-P., <strong>Das P.</strong> &amp; Jacob Z. — <em>New Journal of Physics</em> 26, 093041 (2024)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1088/1367-2630/ad692a">Quantum theory of orbital angular momentum in spatiotemporal optical vortices</a>
+            <span class="badge">First author</span> <span class="badge">Most-read, Aug–Sep 2024</span>
+          </p>
+          <p class="pub-meta"><strong>Das P.</strong>, Bharadwaj S. &amp; Jacob Z. — <em>New Journal of Physics</em> 26, 083008 (2024)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1364/JOSAB.524752">What are the quantum commutation relations for the total angular momentum of light? (tutorial)</a>
+            <span class="badge">First author</span> <span class="badge">Most-downloaded, Jul–Sep 2024</span>
+          </p>
+          <p class="pub-meta"><strong>Das P.</strong>, Yang L.-P. &amp; Jacob Z. — <em>Journal of the Optical Society of America B</em> 41(8) (2024)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1088/1361-6463/abfa3a">Detection of electron spin resonance down to 10 K using localized spoof surface plasmon</a>
+          </p>
+          <p class="pub-meta">Roy S., Nandi A., <strong>Das P.</strong> &amp; Mitra C. — <em>Journal of Physics D: Applied Physics</em> 54, 285003 (2021)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1088/2633-1357/abc870">S-band electron spin resonance spectroscopy using a short-circuited coplanar waveguide resonator</a>
+          </p>
+          <p class="pub-meta">Roy S., Nandi A., <strong>Das P.</strong> &amp; Mitra C. — <em>IOP SciNotes</em> 1, 035202 (2021)</p>
+        </li>
+      </ul>
     </section>
 
-    <!-- Methods & Tooling -->
-    <section id="methods" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Methods and tooling</h2>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Theory stack</h3>
-            <p class="card-subtitle">Operator electrodynamics and response functions</p>
-          </div>
-          <p class="muted">
-            Operator-based electrodynamics, response functions, and symmetry constraints, with deliberate attention to where macroscopic
-            approximations fail: spatial dispersion, finite momentum, and unit-cell-scale field structure.
-          </p>
-          <ul class="bullets muted">
-            <li>Current-current optical correlation functions with lattice momentum exchange</li>
-            <li>Nonlocal conductivity and dielectric tensors, eigenmodes and indicators</li>
-            <li>Quantum photonic angular momentum operators and fluctuations</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Computation stack</h3>
-            <p class="card-subtitle">Scalable numerics for large operators and matrices</p>
-          </div>
-          <p class="muted">
-            Scalable numerics for high-dimensional Hamiltonians and response matrices, optimized to make microscopic physics computable
-            across broad frequency and momentum ranges.
-          </p>
-          <ul class="bullets muted">
-            <li>Sparse eigen-solvers and high-dimensional linear algebra</li>
-            <li>C++ modules integrated into Purdue-PicoMax; Python/Matlab analysis pipelines</li>
-            <li>Reproducible workflows for figures, benchmarks, and parameter sweeps</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Training context -->
-    <section id="context" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Training context</h2>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Graduate training</h3>
-            <p class="card-subtitle">Coursework aligned with the research direction</p>
-          </div>
-          <p class="muted">
-            PhD in Electrical and Computer Engineering at Purdue University, supported by graduate coursework spanning nonlinear optics,
-            topological electrodynamics, quantum detectors and sensors, and modern generative models.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Nonlinear optics</span>
-            <span class="chip">Topological electrodynamics</span>
-            <span class="chip">Quantum detectors</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Lab and instrumentation (NV centers)</h3>
-            <p class="card-subtitle">Spin control, readout, and ODMR workflows</p>
-          </div>
-          <p class="muted">
-            Experimental capability for NV spin control and readout, including GHz modulation for spin-textured light, shallow NV creation
-            (ion implantation + anneal), and ODMR setup development for cryogenic operation.
-          </p>
-          <div class="chips chips-compact">
-            <span class="chip">Sagnac interferometry</span>
-            <span class="chip">ODMR</span>
-            <span class="chip">Shallow NV defects</span>
-          </div>
-        </div>
-      </div>
+    <!-- Talks -->
+    <section class="section" id="talks">
+      <h2 class="section-title">Selected talks</h2>
+      <ul class="plain-list">
+        <li><strong>Nonlocal Super-Dispersion of Optical Gyrotropy in Tellurium</strong><span class="when">2025</span>
+          <span class="detail">Talk, APS Global Physics Summit, Anaheim, CA</span></li>
+        <li><strong>Quantum Theory of OAM in Spatiotemporal Optical Vortices</strong><span class="when">2024</span>
+          <span class="detail">Invited talk, Birck Nanotechnology Center, Purdue University</span></li>
+        <li><strong>Quantum synchronization in nitrogen-vacancy centers in diamonds</strong><span class="when">2021</span>
+          <span class="detail">Talk, APS March Meeting</span></li>
+      </ul>
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> Pronoy Das. All Rights Reserved.</p>
+      <ul class="footer-links">
+        <li><a href="docs/resume.pdf">Resume (PDF)</a></li>
+        <li><a href="docs/CV.pdf">Full CV (PDF)</a></li>
+        <li><a href="docs/transcript.pdf">Transcript (PDF)</a></li>
+        <li><a href="https://github.com/daspronoy" target="_blank" rel="noreferrer">GitHub</a></li>
+      </ul>
+      <p>© 2026 Pronoy Das · das168@purdue.edu · pronoy098@gmail.com</p>
     </footer>
   </main>
-
-  <!-- JS: mobile menu + current year -->
-  <script>
-    (function () {
-      var mobileButton = document.getElementById("mobile-menu-button");
-      var mobileMenu = document.getElementById("mobile-menu");
-      var iconMenu = document.getElementById("icon-menu");
-      var iconClose = document.getElementById("icon-close");
-
-      function setMobileOpen(open) {
-        if (!mobileMenu) return;
-        if (open) {
-          mobileMenu.classList.remove("hidden");
-          mobileButton.setAttribute("aria-expanded", "true");
-          iconMenu.classList.add("hidden");
-          iconClose.classList.remove("hidden");
-        } else {
-          mobileMenu.classList.add("hidden");
-          mobileButton.setAttribute("aria-expanded", "false");
-          iconMenu.classList.remove("hidden");
-          iconClose.classList.add("hidden");
-        }
-      }
-
-      if (mobileButton && mobileMenu) {
-        setMobileOpen(false);
-        mobileButton.addEventListener("click", function () {
-          var isHidden = mobileMenu.classList.contains("hidden");
-          setMobileOpen(isHidden);
-        });
-
-        window.addEventListener("resize", function () {
-          if (window.innerWidth >= 768) setMobileOpen(false);
-        });
-
-        window.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") setMobileOpen(false);
-        });
-      }
-
-      var yearSpan = document.getElementById("year");
-      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-    })();
-  </script>
 </body>
 </html>

@@ -1,36 +1,34 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pronoy Das</title>
+  <title>Pronoy Das — Machine Learning, GPU Computing &amp; Quantum Research</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Pronoy Das — Donnan Fellow at Purdue University. Quantum optics & structured light (STOVs, OAM), deep-microscopic electrodynamics in quantum materials, chiral photonics in tellurium, and NV-center metrology." />
+  <meta name="description" content="Pronoy Das — PhD candidate in Electrical & Computer Engineering at Purdue University. Machine learning and optimization for physical systems, CUDA/GPU high-performance computing, and quantum optics. 10 journal publications, 3 first-author." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://daspronoy.github.io/" />
-  <meta name="keywords" content="Pronoy Das, quantum optics, structured light, STOV, OAM, chiral photonics, tellurium, deep-microscopic electrodynamics, NV centers, Purdue" />
+  <meta name="keywords" content="Pronoy Das, machine learning, diffusion models, energy-based models, Ising optimization, CUDA, GPU computing, HPC, quantum optics, structured light, tellurium, NV centers, Purdue" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daspronoy.github.io/" />
-  <meta property="og:title" content="Pronoy Das — Quantum Optics, Structured Light & Chiral Photonics" />
-  <meta property="og:description" content="Research on structured light, photonic angular momentum, deep-microscopic optical bandstructure in chiral tellurium, and NV-center quantum metrology." />
+  <meta property="og:title" content="Pronoy Das — Machine Learning, GPU Computing & Quantum Research" />
+  <meta property="og:description" content="PhD candidate at Purdue University. ML + optimization for physical systems, CUDA/GPU engineering, and quantum optics. 10 journal publications." />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
   <meta property="og:image:alt" content="Headshot of Pronoy Das" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pronoy Das — Quantum Optics, Structured Light & Chiral Photonics" />
-  <meta name="twitter:description" content="Structured light (STOVs, OAM), chiral tellurium photonics, deep-microscopic electrodynamics, and NV-center metrology." />
+  <meta name="twitter:title" content="Pronoy Das — Machine Learning, GPU Computing & Quantum Research" />
+  <meta name="twitter:description" content="ML + optimization for physical systems, CUDA/GPU engineering, and quantum optics. PhD candidate at Purdue University." />
   <meta name="twitter:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
 
-  <!-- Performance / Verification -->
+  <!-- Verification -->
   <meta name="google-site-verification" content="42nH_CmQZgl0JxDSsshO5SzyL0wunPwzv5O39DgDNwk" />
 
-  <!-- CSS (no Tailwind CDN) -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- JSON-LD structured data -->
@@ -41,14 +39,22 @@
     "name": "Pronoy Das",
     "image": "https://daspronoy.github.io/assets/Pronoy.webp",
     "url": "https://daspronoy.github.io/",
-    "jobTitle": "Donnan Fellow, Graduate Research Assistant",
+    "jobTitle": "PhD Candidate in Electrical and Computer Engineering",
     "affiliation": [
       {"@type": "Organization", "name": "Purdue University"},
       {"@type": "Organization", "name": "Elmore Family School of Electrical and Computer Engineering"},
-      {"@type": "Organization", "name": "Birck Nanotechnology Center"},
-      {"@type": "Organization", "name": "Purdue Quantum Science and Engineering Institute"}
+      {"@type": "Organization", "name": "Birck Nanotechnology Center"}
     ],
-    "email": "mailto:das168@purdue.edu",
+    "alumniOf": [
+      {"@type": "Organization", "name": "Indian Institute of Science Education and Research Kolkata"}
+    ],
+    "knowsAbout": [
+      "Machine learning", "Diffusion models", "Energy-based models",
+      "Ising and combinatorial optimization", "CUDA", "GPU computing",
+      "High-performance computing", "Quantum optics", "Quantum field theory",
+      "Structured light", "Nanophotonics", "NV centers"
+    ],
+    "email": ["mailto:das168@purdue.edu", "mailto:pronoy098@gmail.com"],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "West Lafayette",
@@ -57,282 +63,261 @@
     },
     "sameAs": [
       "https://www.linkedin.com/in/daspronoy/",
-      "https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en"
+      "https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en",
+      "https://github.com/daspronoy"
     ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Pronoy Das",
-    "url": "https://daspronoy.github.io/"
   }
   </script>
 </head>
 
 <body>
-  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="brand">Pronoy Das</a>
-
-      <!-- Desktop nav -->
-      <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="index.html" class="nav-link">Bio</a>
+      <a href="index.html" class="brand">Pronoy Das</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link" aria-current="page">Home</a>
         <a href="research.html" class="nav-link">Research</a>
-        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" class="nav-link">Publications</a>
+        <a href="research.html#publications" class="nav-link">Publications</a>
+        <a href="docs/resume.pdf" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
-
-      <div class="header-actions">
-        <!-- Mobile menu button -->
-        <button
-          type="button"
-          id="mobile-menu-button"
-          class="icon-button"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile dropdown -->
-      <div id="mobile-menu" class="mobile-menu hidden" role="menu" aria-label="Mobile navigation">
-        <a href="index.html" class="mobile-link" role="menuitem">Bio</a>
-        <a href="research.html" class="mobile-link" role="menuitem">Research</a>
-        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" class="mobile-link" role="menuitem">Publications</a>
-      </div>
     </div>
   </header>
 
-  <main id="top" class="container">
+  <main class="container">
     <!-- Hero -->
     <section class="hero">
       <div class="hero-grid">
-        <div class="hero-left">
-          <div class="status-pill">
-            <span class="ping-wrap" aria-hidden="true">
-              <span class="ping"></span>
-              <span class="dot"></span>
-            </span>
-            Currently seeking full-time positions
-          </div>
-
+        <div>
+          <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Open to research internships &amp; full-time roles</span>
           <h1 class="hero-title">Pronoy Das</h1>
-          <p class="hero-subtitle">Donnan Fellow | Graduate Research Assistant @ Purdue University</p>
-
+          <p class="hero-subtitle">PhD Candidate, Electrical &amp; Computer Engineering · Purdue University</p>
           <p class="hero-blurb">
-            Welcome to my website! I work on quantum optics and quantum nanophotonics: structured light (STOVs, OAM), photonic angular momentum,
-            and deep-microscopic electrodynamics in quantum materials, with emphasis on chiral tellurium and NV-center quantum sensing.
+            I work at the intersection of <strong>machine learning</strong>, <strong>GPU high-performance computing</strong>,
+            and <strong>quantum physics</strong> — building physics-grounded ML and optimization for hard sampling problems,
+            engineering CUDA kernels that cut runtimes by two orders of magnitude, and publishing quantum-optics theory
+            in venues like <em>Physical Review B</em>.
           </p>
-
           <div class="hero-cta">
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer">↗ LinkedIn</a>
-            <a class="btn btn-outline" href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&hl=en" target="_blank" rel="noreferrer">↗ Google Scholar</a>
-            <a class="btn btn-solid" href="docs/resume_git.pdf">Resume (PDF)</a>
+            <a class="btn btn-primary" href="docs/resume.pdf">Resume (PDF)</a>
+            <a class="btn" href="research.html">Research</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           </div>
         </div>
+        <div class="portrait">
+          <img src="assets/Pronoy.webp" alt="Headshot of Pronoy Das" width="190" height="190" loading="eager" />
+        </div>
+      </div>
 
-        <div class="hero-right">
-          <div class="avatar">
-            <img src="assets/Pronoy.webp" alt="Headshot of Pronoy Das" width="224" height="224" loading="eager" />
-          </div>
+      <div class="stats" role="list" aria-label="Highlights">
+        <div class="stat" role="listitem">
+          <p class="stat-value">10</p>
+          <p class="stat-label">Journal publications, 3 first-author</p>
+        </div>
+        <div class="stat" role="listitem">
+          <p class="stat-value">108&times;</p>
+          <p class="stat-label">CUDA kernel speedup on NVIDIA Blackwell</p>
+        </div>
+        <div class="stat" role="listitem">
+          <p class="stat-value">PRB Letter</p>
+          <p class="stat-label">Editor's Suggestion, <em>Physical Review B</em> (2026)</p>
+        </div>
+        <div class="stat" role="listitem">
+          <p class="stat-value">Donnan Fellow</p>
+          <p class="stat-label">Purdue fellowship for research excellence (2026)</p>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">About</h2>
-      </div>
+    <!-- What I do -->
+    <section class="section" id="about">
+      <h2 class="section-title">What I do</h2>
+      <p class="section-intro">
+        Three threads run through my work: learning algorithms grounded in physics, performance engineering on real
+        hardware, and rigorous quantum theory with a strong publication record.
+      </p>
 
-      <div class="two-col">
-        <div class="card card-plain">
-          <p class="muted">
-            I am a researcher in quantum optics. I focus on how light can be shaped, how it twists, spins, and flows in space and time,
-            and how those degrees of freedom couple to quantum materials. The goal is physics-first theory and computation that translates
-            into practical capabilities for sensing, imaging, and robust photonic devices.
+      <div class="pillars">
+        <div class="pillar">
+          <span class="kicker">Machine Learning</span>
+          <h3>ML &amp; optimization for physical systems</h3>
+          <p>
+            Generative modeling with diffusion and energy-based models (Boltzmann machines), and Ising / combinatorial
+            optimization. Currently building an amortized sampler for Boltzmann machines via correlated diffusion,
+            realized on a continuous-variable optical Ising machine at Sandia National Laboratories.
           </p>
+        </div>
 
-          <ul class="bullets muted">
-            <li>Elmore Family School of Electrical and Computer Engineering</li>
-            <li>Birck Nanotechnology Center</li>
-            <li>Purdue Quantum Science and Engineering Institute</li>
-            <li>Purdue University, West Lafayette, IN, USA</li>
+        <div class="pillar">
+          <span class="kicker">GPU &amp; HPC</span>
+          <h3>CUDA performance engineering</h3>
+          <p>
+            Hand-optimized CUDA C++ kernels for scientific workloads. Built a low-power, field-deployable faint-object
+            detection pipeline running in near real-time on quantum shot-noise-limited images, cutting runtime by
+            ~108&times; on NVIDIA Blackwell.
+          </p>
+        </div>
+
+        <div class="pillar">
+          <span class="kicker">Quantum</span>
+          <h3>Quantum optics &amp; photonics theory</h3>
+          <p>
+            Quantum field theory of structured light and first-principles light–matter interaction in crystals.
+            10 journal articles including a <em>Phys. Rev. B</em> Letter (Editor's Suggestion); co-author of the
+            Purdue-PicoMax C++ electromagnetic simulation package.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2 class="section-title">Experience</h2>
+      <ul class="timeline">
+        <li>
+          <div class="role-head">
+            <h3 class="role-title">ML + Optics Researcher</h3>
+            <span class="role-dates">May 2026 – Present</span>
+          </div>
+          <p class="role-org">Center for Integrated Nanotechnologies (CINT), Sandia National Laboratories · Albuquerque, NM</p>
+          <p class="role-desc">
+            Building an amortized sampler for Boltzmann machines via correlated diffusion, realized on a
+            continuous-variable optical Ising system engineered for fully frustrated (spin-glass) couplings — a
+            physics-based approach to hard sampling and optimization problems.
+          </p>
+        </li>
+
+        <li>
+          <div class="role-head">
+            <h3 class="role-title">HPC Research Consultant</h3>
+            <span class="role-dates">Mar 2026 – May 2026</span>
+          </div>
+          <p class="role-org">Zetascope LLC · West Lafayette, IN</p>
+          <p class="role-desc">
+            Developed a low-power, field-deployable faint-object detection pipeline running in near real-time on
+            quantum shot-noise-limited images. Engineered optimized CUDA C++ kernels on the NVIDIA Blackwell
+            architecture, cutting runtime by ~108&times;.
+          </p>
+        </li>
+
+        <li>
+          <div class="role-head">
+            <h3 class="role-title">Graduate Research Assistant (PhD)</h3>
+            <span class="role-dates">Aug 2021 – Present</span>
+          </div>
+          <p class="role-org">Prof. Zubin Jacob's Group, Birck Nanotechnology Center, Purdue University · West Lafayette, IN</p>
+          <p class="role-desc">
+            Revealed the quantum mechanism behind super-dispersive optical activity in chiral tellurium
+            (<em>Phys. Rev. B</em> Letter, Editor's Suggestion) and built a C++ electromagnetic simulation package
+            reaching 5&times; lower error than existing methods. Established the correct quantum theory for the angular
+            momentum of structured light, predicting a new measurable quantum noise. Co-designed a cryogenic confocal
+            microscope for single spin-qubit (diamond NV) control and readout.
+          </p>
+        </li>
+
+        <li>
+          <div class="role-head">
+            <h3 class="role-title">Undergraduate Researcher</h3>
+            <span class="role-dates">Aug 2019 – Jul 2021</span>
+          </div>
+          <p class="role-org">Prof. Chiranjib Mitra's Group, Dept. of Physics, IISER Kolkata · India</p>
+          <p class="role-desc">
+            Designed and fabricated on-chip microwave antennas for sub-10 K spin spectroscopy
+            (<em>J. Phys. D: Appl. Phys.</em>); built a lock-in confocal microscope to optically manipulate diamond
+            spin qubits.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Selected publications -->
+    <section class="section" id="publications">
+      <h2 class="section-title">Selected publications</h2>
+      <ul class="pub-list">
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1103/PhysRevB.113.L041116">Quantum Theory of Optical Spin Texture in Chiral Tellurium Lattice</a>
+            <span class="badge">Letter · Editor's Suggestion</span>
+          </p>
+          <p class="pub-meta"><strong>Das P.</strong>, Bharadwaj S., Mun J., Wang X., Rho J. &amp; Jacob Z. — <em>Physical Review B</em> 113, L041116 (2026)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1088/1367-2630/ad692a">Quantum theory of orbital angular momentum in spatiotemporal optical vortices</a>
+            <span class="badge">Most-read, Aug–Sep 2024</span>
+          </p>
+          <p class="pub-meta"><strong>Das P.</strong>, Bharadwaj S. &amp; Jacob Z. — <em>New Journal of Physics</em> 26, 083008 (2024)</p>
+        </li>
+        <li>
+          <p class="pub-title">
+            <a href="https://doi.org/10.1364/JOSAB.524752">What are the quantum commutation relations for the total angular momentum of light?</a>
+            <span class="badge">Most-downloaded, Jul–Sep 2024</span>
+          </p>
+          <p class="pub-meta"><strong>Das P.</strong>, Yang L.-P. &amp; Jacob Z. — <em>Journal of the Optical Society of America B</em> 41(8) (2024)</p>
+        </li>
+      </ul>
+      <p class="section-foot">
+        <a href="research.html#publications">All publications →</a> &nbsp;·&nbsp;
+        <a href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+      </p>
+    </section>
+
+    <!-- Awards & Education -->
+    <section class="section" id="background">
+      <h2 class="section-title">Awards &amp; education</h2>
+      <div class="two-col">
+        <div>
+          <ul class="plain-list">
+            <li><strong>Hugh W. &amp; Edna M. Donnan Dissertation Fellowship</strong><span class="when">2026</span>
+              <span class="detail">Purdue University, for excellence in research</span></li>
+            <li><strong>APS Distinguished Student Award</strong><span class="when">2025</span>
+              <span class="detail">APS Forum on International Physics, APS Global Physics Summit</span></li>
+            <li><strong>Purdue ECE Bravo Award</strong><span class="when">2024</span>
+              <span class="detail">For excellence in teaching as a graduate course instructor</span></li>
+            <li><strong>Purdue Summer Research Grant</strong><span class="when">2024</span>
+              <span class="detail">Competitive university-wide research grant</span></li>
           </ul>
-
-          <div class="spacer-sm"></div>
-          <a href="research.html" class="btn btn-outline">Research overview →</a>
         </div>
-
-        <div class="card">
-          <div class="card-head">
-            <h3 class="card-title">Now</h3>
-            <p class="card-subtitle">What I am focused on</p>
-          </div>
-          <div class="chips">
-            <span class="chip">Deep-microscopic optics and nonlocal electrodynamics in quantum materials</span>
-            <span class="chip">Chiral photonics in tellurium: optical gyrotropy and spin textures</span>
-            <span class="chip">Quantum structured light and photonic angular momentum fluctuations</span>
-            <span class="chip">NV-center quantum metrology and spin-photon interfaces</span>
-          </div>
+        <div>
+          <ul class="plain-list">
+            <li><strong>PhD, Electrical &amp; Computer Engineering</strong><span class="when">2021 – 2027 (exp.)</span>
+              <span class="detail">Purdue University · GPA 3.89/4.0</span></li>
+            <li><strong>Dual BS-MS, Physics</strong><span class="when">2016 – 2021</span>
+              <span class="detail">IISER Kolkata · GPA 8.82/10</span></li>
+            <li><strong>Service &amp; teaching</strong>
+              <span class="detail">Reviewer for APS, IOP, Royal Society &amp; SciPost journals · Graduate course instructor for 60+ students, leading a team of 6 TAs</span></li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- Awards -->
-    <section id="awards" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Awards</h2>
-      </div>
-
-      <div class="stack">
-        <div class="card">
-          <h3 class="card-title">Donnan Dissertation Fellowship</h3>
-          <p class="card-subtitle">Purdue University · 2026</p>
-          <p class="muted">Awarded by Purdue University for research excellence to support the final year of dissertation work.</p>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">APS Distinguished Student (DS) Award</h3>
-          <p class="card-subtitle">APS Forum on International Physics · 2025</p>
-          <p class="muted">Awarded to present research at APS Global Physics Summit 2025.</p>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Purdue ECE Bravo Award for Excellence in Teaching</h3>
-          <p class="card-subtitle">Purdue University · 2024</p>
-          <p class="muted">Recognized for excellence and contributions as a Graduate Course Instructor.</p>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Summer Research Grant</h3>
-          <p class="card-subtitle">Purdue University · 2024</p>
-          <p class="muted">Competitive university-wide grant to support full-time summer research.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Docs -->
-    <section id="docs" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Resume, CV and Documents</h2>
-      </div>
-
-      <div class="grid-cards">
-        <a href="docs/CV.pdf" class="card card-link">
-          <div class="card-link-row">
-            <div>
-              <h4 class="card-title-sm">Curriculum Vitae (PDF)</h4>
-              <p class="card-subtitle">PDF · open in new tab</p>
-            </div>
-            <span class="link-arrow" aria-hidden="true">↗</span>
-          </div>
-        </a>
-
-        <a href="docs/resume_git.pdf" class="card card-link">
-          <div class="card-link-row">
-            <div>
-              <h4 class="card-title-sm">Resume (PDF)</h4>
-              <p class="card-subtitle">PDF · open in new tab</p>
-            </div>
-            <span class="link-arrow" aria-hidden="true">↗</span>
-          </div>
-        </a>
-
-        <a href="docs/transcript.pdf" class="card card-link">
-          <div class="card-link-row">
-            <div>
-              <h4 class="card-title-sm">Transcript (PDF)</h4>
-              <p class="card-subtitle">PDF · open in new tab</p>
-            </div>
-            <span class="link-arrow" aria-hidden="true">↗</span>
-          </div>
-        </a>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="section-head">
-        <div class="accent-bar" aria-hidden="true"></div>
-        <h2 class="section-title">Contact</h2>
-      </div>
-
-      <div class="two-col">
-        <div class="card">
-          <h3 class="card-title">Let us talk</h3>
-          <p class="muted">Please feel free to reach out to me!</p>
-          <div class="hero-cta">
-            <a class="btn btn-solid" href="mailto:das168@purdue.edu">Email</a>
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
+    <section class="section" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-card">
+        <p>
+          The best way to reach me is by email — I read both inboxes daily and reply quickly to
+          recruiting and collaboration inquiries.
+        </p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:das168@purdue.edu">das168@purdue.edu</a>
+          <a class="btn" href="mailto:pronoy098@gmail.com">pronoy098@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> Pronoy Das. All Rights Reserved.</p>
+      <ul class="footer-links">
+        <li><a href="docs/resume.pdf">Resume (PDF)</a></li>
+        <li><a href="docs/CV.pdf">Full CV (PDF)</a></li>
+        <li><a href="docs/transcript.pdf">Transcript (PDF)</a></li>
+        <li><a href="https://github.com/daspronoy" target="_blank" rel="noreferrer">GitHub</a></li>
+      </ul>
+      <p>© 2026 Pronoy Das · das168@purdue.edu · pronoy098@gmail.com</p>
     </footer>
   </main>
-
-  <!-- JS: mobile menu + current year -->
-  <script>
-    (function () {
-      var mobileButton = document.getElementById("mobile-menu-button");
-      var mobileMenu = document.getElementById("mobile-menu");
-      var iconMenu = document.getElementById("icon-menu");
-      var iconClose = document.getElementById("icon-close");
-
-      function setMobileOpen(open) {
-        if (!mobileMenu) return;
-        if (open) {
-          mobileMenu.classList.remove("hidden");
-          mobileButton.setAttribute("aria-expanded", "true");
-          iconMenu.classList.add("hidden");
-          iconClose.classList.remove("hidden");
-        } else {
-          mobileMenu.classList.add("hidden");
-          mobileButton.setAttribute("aria-expanded", "false");
-          iconMenu.classList.remove("hidden");
-          iconClose.classList.add("hidden");
-        }
-      }
-
-      if (mobileButton && mobileMenu) {
-        setMobileOpen(false);
-        mobileButton.addEventListener("click", function () {
-          var isHidden = mobileMenu.classList.contains("hidden");
-          setMobileOpen(isHidden);
-        });
-
-        window.addEventListener("resize", function () {
-          if (window.innerWidth >= 768) setMobileOpen(false);
-        });
-
-        window.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") setMobileOpen(false);
-        });
-      }
-
-      var yearSpan = document.getElementById("year");
-      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-    })();
-  </script>
 </body>
 </html>
