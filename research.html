@@ -6,7 +6,7 @@
   <title>Research &amp; Publications | Pronoy Das</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Research by Pronoy Das: machine learning and optimization on physical hardware, CUDA/GPU performance engineering, quantum optics of structured light, chiral tellurium photonics, and NV-center quantum sensing. Full publication list." />
+  <meta name="description" content="Research by Pronoy Das: AI safety and model internals (misalignment during RLVR), optical computing with Ising machines, CUDA/GPU performance engineering, quantum optics of structured light, chiral tellurium photonics, and NV-center quantum sensing. Full publication list." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://daspronoy.github.io/research.html" />
 
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daspronoy.github.io/research.html" />
   <meta property="og:title" content="Research &amp; Publications | Pronoy Das" />
-  <meta property="og:description" content="ML + optimization for physical systems, GPU performance engineering, quantum optics of structured light, chiral photonics, and NV-center quantum sensing." />
+  <meta property="og:description" content="AI safety and model internals research, optical computing with Ising machines, GPU performance engineering, quantum optics of structured light, chiral photonics, and NV-center quantum sensing." />
   <meta property="og:site_name" content="Pronoy Das" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
@@ -23,7 +23,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Research &amp; Publications | Pronoy Das" />
-  <meta name="twitter:description" content="ML + optimization for physical systems, GPU performance engineering, quantum optics, and NV-center quantum sensing." />
+  <meta name="twitter:description" content="AI safety and model internals research, optical computing with Ising machines, GPU performance engineering, quantum optics, and NV-center quantum sensing." />
   <meta name="twitter:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
 
   <link rel="stylesheet" href="styles.css" />
@@ -37,9 +37,9 @@
     "url": "https://daspronoy.github.io/research.html",
     "isPartOf": {"@type": "WebSite", "name": "Pronoy Das", "url": "https://daspronoy.github.io/"},
     "about": [
-      "Machine learning for physical systems",
-      "Diffusion models and energy-based models",
-      "Ising and combinatorial optimization",
+      "AI safety and model internals",
+      "Misalignment during reinforcement learning with verifiable rewards",
+      "Optical computing and Ising machines",
       "CUDA and GPU computing",
       "Quantum optics and structured light",
       "Chiral photonics in tellurium",
@@ -58,7 +58,6 @@
         <a href="research.html" class="nav-link" aria-current="page">Research</a>
         <a href="experience.html" class="nav-link">Experience</a>
         <a href="#publications" class="nav-link">Publications</a>
-        <a href="docs/resume.pdf" class="nav-link">Resume</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
       </nav>
     </div>
@@ -69,17 +68,16 @@
     <section class="hero">
       <h1 class="hero-title">Research</h1>
       <p class="hero-blurb">
-        I build <strong>machine learning that runs on physical hardware</strong>: diffusion-based samplers on an
-        optical Ising machine at Sandia National Laboratories, and CUDA pipelines that extract signals at the
-        quantum noise limit. Behind this sits a decade of physics, from quantum optics theory to spin-qubit
-        experiments, across ten journal publications. My aim now is to carry that grounding into ML itself,
-        toward capable and efficient models and AI agents. Below are the major projects in reverse chronological
-        order, followed by the full publication list.
+        My research is turning towards <strong>AI safety</strong>. I want to understand what happens inside a model
+        as it trains, i.e. when and how misalignment emerges, with the same rigor I learned doing physics. The
+        physics is here too: an optical Ising machine at Sandia National Laboratories, CUDA pipelines that extract
+        signals at the quantum noise limit, and a decade of quantum optics theory and spin-qubit experiments across
+        ten journal publications. Below are the major projects in reverse chronological order, followed by the full
+        publication list.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#publications">Publications</a>
         <a class="btn" href="https://scholar.google.com/citations?user=Vebs9z4AAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
-        <a class="btn" href="docs/resume.pdf">Resume (PDF)</a>
       </div>
     </section>
 
@@ -88,21 +86,41 @@
       <h2 class="section-title">Projects</h2>
 
       <article class="project">
-        <h3>Amortized sampling for Boltzmann machines on an optical Ising machine</h3>
-        <p class="project-venue">Sandia National Laboratories, Center for Integrated Nanotechnologies · 2026 – ongoing</p>
+        <h3>When does misalignment emerge during RLVR?</h3>
+        <p class="project-venue">BlueDot Impact, Technical AI Safety Project · 2026 – ongoing</p>
         <p>
-          Sampling from energy-based models like Boltzmann machines is a core bottleneck in generative modeling.
-          I am building an amortized sampler based on correlated diffusion, realized on a continuous-variable
-          optical Ising system engineered for fully frustrated (spin-glass) couplings — using physical hardware
-          to attack hard sampling and combinatorial optimization problems that are expensive for conventional
-          Monte Carlo methods.
+          Reinforcement learning with verifiable rewards (RLVR) is the training recipe behind today's reasoning
+          models, but nobody really knows when (or how) misaligned behavior appears along the way. My approach is
+          simple: take intermediate checkpoints of an open-weight model (OLMo-3), evaluate each one, and map where
+          the misalignment starts relative to the capability gains. I am also training linear probes on the
+          checkpoint activations, to test whether the internal signals of misalignment appear before the behavior
+          does. If they do, that gives a cheap early-warning monitor, i.e. a way to flag problems before they show
+          up in the outputs.
         </p>
         <div class="tag-row">
-          <span class="tag">Diffusion models</span>
-          <span class="tag">Energy-based models</span>
-          <span class="tag">Ising optimization</span>
-          <span class="tag">Optical computing</span>
+          <span class="tag">AI safety</span>
+          <span class="tag">Model internals</span>
+          <span class="tag">RLVR</span>
+          <span class="tag">Linear probes</span>
           <span class="tag">PyTorch</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Optical Ising machine for physically solving PDE dynamics</h3>
+        <p class="project-venue">Sandia National Laboratories, Center for Integrated Nanotechnologies · 2026 – ongoing</p>
+        <p>
+          Simulating the dynamics of nonlinear partial differential equations gets expensive quickly on digital
+          hardware. I am building an optical optimizer (an Ising machine) that physically solves the dynamics of
+          the Cahn&ndash;Hilliard equation, the workhorse PDE of phase separation. Instead of numerically stepping
+          through the equation, the optics itself does the computation. For large systems, this can potentially
+          give a &ge;9&times; gain in both speed and energy cost.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Ising machines</span>
+          <span class="tag">Optical computing</span>
+          <span class="tag">PDE dynamics</span>
+          <span class="tag">Statistical physics</span>
         </div>
       </article>
 
@@ -110,11 +128,11 @@
         <h3>Near real-time faint-object detection on GPUs</h3>
         <p class="project-venue">Zetascope LLC · 2026</p>
         <p>
-          Detecting faint moving objects in image streams where the per-frame signal sits below the noise floor
-          requires integrating intensity along millions of candidate trajectories — a brute-force compute problem.
+          Detecting faint moving objects is hard when the per-frame signal sits below the noise floor; you have to
+          integrate the intensity along millions of candidate trajectories, which is a brute-force compute problem.
           I developed a low-power, field-deployable detection pipeline that runs in near real-time on quantum
-          shot-noise-limited images, hand-optimizing CUDA C++ kernels on the NVIDIA Blackwell architecture for a
-          ~108&times; runtime reduction, with memory-hierarchy and roofline analysis guiding the optimization.
+          shot-noise-limited images. I hand-optimized the CUDA C++ kernels for the NVIDIA Blackwell GPU, using
+          memory-hierarchy and roofline analysis to guide the optimization, and cut the runtime by ~108&times;.
         </p>
         <div class="tag-row">
           <span class="tag">CUDA C++</span>
@@ -129,14 +147,14 @@
         <p class="project-venue">Purdue University, Jacob Group · 2024 – 2025 · <em>Phys. Rev. B</em> Letter, Editor's Suggestion</p>
         <p>
           Tellurium's optical activity is known experimentally to diverge near the band edge, but decades of
-          first-principles attempts failed to reproduce it because optical gyrotropy is intrinsically a
-          finite-momentum effect. I built the first fully quantum, lattice-resolved optical band structure of chiral
-          tellurium, solved the dispersion problem with quantitative agreement against experiment across the
-          mid-infrared, and uncovered hidden optical waves and optical spin textures inside the lattice.
+          first-principles attempts failed to reproduce it. The reason is that optical gyrotropy is intrinsically
+          a finite-momentum effect. I built the first fully quantum, lattice-resolved optical band structure of
+          chiral tellurium, solved the dispersion problem with quantitative agreement against experiment across
+          the mid-infrared, and found hidden optical waves and optical spin textures inside the lattice.
         </p>
         <p>
           Alongside the theory, I co-authored <strong>Purdue-PicoMax</strong>, an open-source C++ package for
-          nonlocal optical response in crystals that reaches ~5&times; lower error than existing methods; its
+          nonlocal optical response in crystals. It reaches ~5&times; lower error than existing methods, and its
           predictions were later validated by electron-energy-loss measurements.
         </p>
         <div class="tag-row">
@@ -151,11 +169,11 @@
         <h3>Quantum theory of structured light</h3>
         <p class="project-venue">Purdue University, Jacob Group · 2022 – 2024 · <em>New J. Phys.</em> &amp; <em>JOSA B</em></p>
         <p>
-          Settled a long-standing debate on the correct quantum commutation relations for the angular momentum of
-          light — a result with a widely propagated textbook error at its center — in a tutorial that was JOSA B's
-          most-downloaded article for three consecutive months. Built the first quantum field theory of
-          spatiotemporal optical vortices beyond the paraxial limit, predicting a previously unrecognized,
-          experimentally accessible quantum fluctuation in their orbital angular momentum.
+          I settled a long-standing debate on the correct quantum commutation relations for the angular momentum
+          of light; at the center of it sits a widely propagated textbook error. The tutorial I wrote on this was
+          JOSA B's most-downloaded article for three consecutive months. I also built the first quantum field
+          theory of spatiotemporal optical vortices beyond the paraxial limit, which predicts a previously
+          unrecognized, experimentally accessible quantum fluctuation in their orbital angular momentum.
         </p>
         <div class="tag-row">
           <span class="tag">Quantum field theory</span>
@@ -168,11 +186,11 @@
         <h3>Quantum sensing with NV centers in diamond</h3>
         <p class="project-venue">Purdue University, Jacob Group · 2021 – 2022 · multiple co-authored articles</p>
         <p>
-          Built experimental infrastructure for single spin-qubit control and readout: co-designed a cryogenic
-          confocal microscope for optically-detected magnetic resonance, created shallow NV defects (~30 nm from the
-          surface) via ion implantation and annealing, and developed a GHz phase/amplitude modulation setup for
-          spin-textured light using temperature-controlled fiber Sagnac interferometry. This infrastructure underpins
-          published measurements of photonic spin texture with NV-center quantum sensors.
+          I built experimental infrastructure for single spin-qubit control and readout: I co-designed a cryogenic
+          confocal microscope for optically-detected magnetic resonance, created shallow NV defects (~30 nm from
+          the surface) via ion implantation and annealing, and developed a GHz phase/amplitude modulation setup
+          for spin-textured light using temperature-controlled fiber Sagnac interferometry. This infrastructure
+          underpins published measurements of photonic spin texture with NV-center quantum sensors.
         </p>
         <div class="tag-row">
           <span class="tag">Spin qubits</span>
@@ -187,9 +205,10 @@
         <h3>Microwave resonators for cryogenic spin spectroscopy</h3>
         <p class="project-venue">IISER Kolkata, Mitra Group · 2019 – 2021 · <em>J. Phys. D</em> &amp; <em>IOP SciNotes</em></p>
         <p>
-          Designed (CST Studio), fabricated (UV photolithography), and characterized on-chip microwave resonators —
-          a short-circuited coplanar waveguide and a localized spoof-surface-plasmon structure — as the field-concentrating
-          elements of home-built electron spin resonance spectrometers operating from room temperature down to 10 K.
+          I designed (CST Studio), fabricated (UV photolithography), and characterized two on-chip microwave
+          resonators: a short-circuited coplanar waveguide, and a localized spoof-surface-plasmon structure. These
+          were the field-concentrating elements of home-built electron spin resonance spectrometers, operating from
+          room temperature down to 10 K.
         </p>
         <div class="tag-row">
           <span class="tag">RF/microwave design</span>
@@ -285,7 +304,6 @@
 
     <footer class="footer">
       <ul class="footer-links">
-        <li><a href="docs/resume.pdf">Resume (PDF)</a></li>
         <li><a href="docs/CV.pdf">Full CV (PDF)</a></li>
         <li><a href="docs/transcript.pdf">Transcript (PDF)</a></li>
         <li><a href="https://github.com/daspronoy" target="_blank" rel="noreferrer">GitHub</a></li>

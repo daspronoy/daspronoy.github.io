@@ -6,7 +6,7 @@
   <title>Experience &amp; Education | Pronoy Das</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Experience and education of Pronoy Das: ML + optics research at Sandia National Laboratories, CUDA/HPC consulting at Zetascope, PhD research at Purdue University, and a dual BS-MS in Physics from IISER Kolkata." />
+  <meta name="description" content="Experience and education of Pronoy Das: technical AI safety research with BlueDot Impact, computational optics at Sandia National Laboratories, CUDA/HPC consulting at Zetascope, PhD research at Purdue University, and a dual BS-MS in Physics from IISER Kolkata." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://daspronoy.github.io/experience.html" />
 
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daspronoy.github.io/experience.html" />
   <meta property="og:title" content="Experience &amp; Education | Pronoy Das" />
-  <meta property="og:description" content="ML + optics research at Sandia National Laboratories, CUDA/HPC consulting, PhD research at Purdue University, and a dual BS-MS in Physics from IISER Kolkata." />
+  <meta property="og:description" content="Technical AI safety research with BlueDot Impact, computational optics at Sandia National Laboratories, CUDA/HPC consulting, PhD research at Purdue University, and a dual BS-MS in Physics from IISER Kolkata." />
   <meta property="og:site_name" content="Pronoy Das" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
@@ -23,7 +23,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Experience &amp; Education | Pronoy Das" />
-  <meta name="twitter:description" content="ML + optics research at Sandia National Laboratories, CUDA/HPC consulting, PhD research at Purdue University, and a dual BS-MS in Physics from IISER Kolkata." />
+  <meta name="twitter:description" content="Technical AI safety research with BlueDot Impact, computational optics at Sandia National Laboratories, CUDA/HPC consulting, PhD research at Purdue University, and a dual BS-MS in Physics from IISER Kolkata." />
   <meta name="twitter:image" content="https://daspronoy.github.io/assets/Pronoy.webp" />
 
   <link rel="stylesheet" href="styles.css" />
@@ -37,7 +37,8 @@
     "url": "https://daspronoy.github.io/experience.html",
     "isPartOf": {"@type": "WebSite", "name": "Pronoy Das", "url": "https://daspronoy.github.io/"},
     "about": [
-      "Machine learning research at Sandia National Laboratories",
+      "Technical AI safety research with BlueDot Impact",
+      "Computational optics research at Sandia National Laboratories",
       "CUDA and GPU performance engineering",
       "PhD research at Purdue University",
       "Physics education at IISER Kolkata"
@@ -55,7 +56,6 @@
         <a href="research.html" class="nav-link">Research</a>
         <a href="experience.html" class="nav-link" aria-current="page">Experience</a>
         <a href="research.html#publications" class="nav-link">Publications</a>
-        <a href="docs/resume.pdf" class="nav-link">Resume</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
       </nav>
     </div>
@@ -66,13 +66,13 @@
     <section class="hero">
       <h1 class="hero-title">Experience &amp; Education</h1>
       <p class="hero-blurb">
-        From a dual BS-MS in Physics at IISER Kolkata to PhD research at Purdue, and now ML + optics research at
-        <strong>Sandia National Laboratories</strong> alongside <strong>CUDA/HPC consulting</strong> in industry —
-        a path that combines first-principles physics with hands-on machine learning and performance engineering.
+        I started with a dual BS-MS in Physics at IISER Kolkata, moved to Purdue for my PhD, and I am now switching
+        my career direction towards <strong>AI safety</strong>. Along the way, I have done quantum optics theory,
+        spin-qubit experiments, CUDA/HPC consulting, and optical computing at
+        <strong>Sandia National Laboratories</strong>. The full path is below, most recent first.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="docs/resume.pdf">Resume (PDF)</a>
-        <a class="btn" href="research.html">Research</a>
+        <a class="btn btn-primary" href="research.html">Research</a>
         <a class="btn" href="https://www.linkedin.com/in/daspronoy/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </div>
     </section>
@@ -83,14 +83,29 @@
       <ul class="timeline">
         <li>
           <div class="role-head">
-            <h3 class="role-title">ML + Optics Researcher</h3>
+            <h3 class="role-title">Technical AI Safety Project</h3>
+            <span class="role-dates">Jul 2026 – Present</span>
+          </div>
+          <p class="role-org">BlueDot Impact · Remote</p>
+          <p class="role-desc">
+            I am investigating when misalignment emerges during RLVR training, by evaluating intermediate
+            checkpoints of open-weight models (OLMo-3) and mapping the onset of misalignment against the
+            capability gains. I am also training linear probes on the checkpoint activations, to test whether the
+            internal signals of misalignment appear before the behavior does. The goal is a cheap early-warning
+            monitor.
+          </p>
+        </li>
+
+        <li>
+          <div class="role-head">
+            <h3 class="role-title">Computational Optics Researcher</h3>
             <span class="role-dates">May 2026 – Present</span>
           </div>
           <p class="role-org">Center for Integrated Nanotechnologies (CINT), Sandia National Laboratories · Albuquerque, NM</p>
           <p class="role-desc">
-            Building an amortized sampler for Boltzmann machines via correlated diffusion, realized on a
-            continuous-variable optical Ising system engineered for fully frustrated (spin-glass) couplings — a
-            physics-based approach to hard sampling and optimization problems.
+            I am building an optical optimizer (an Ising machine) that physically solves the dynamics of the
+            Cahn&ndash;Hilliard equation, a partial differential equation. For large systems, this can potentially
+            give a &ge;9&times; gain in both speed and energy cost.
           </p>
         </li>
 
@@ -101,9 +116,9 @@
           </div>
           <p class="role-org">Zetascope LLC · West Lafayette, IN</p>
           <p class="role-desc">
-            Developed a low-power, field-deployable faint-object detection pipeline running in near real-time on
-            quantum shot-noise-limited images. Engineered optimized CUDA C++ kernels on the NVIDIA Blackwell
-            architecture, cutting runtime by ~108&times;.
+            I developed a low-power, field-deployable pipeline for faint-object detection, running in near
+            real-time on quantum shot-noise-limited images. I also wrote and optimized a custom CUDA C++ kernel
+            for the NVIDIA Blackwell GPU, which cut the runtime by ~108&times;.
           </p>
         </li>
 
@@ -114,11 +129,12 @@
           </div>
           <p class="role-org">Prof. Zubin Jacob's Group, Birck Nanotechnology Center, Purdue University · West Lafayette, IN</p>
           <p class="role-desc">
-            Revealed the quantum mechanism behind super-dispersive optical activity in chiral tellurium
-            (<em>Phys. Rev. B</em> Letter, Editor's Suggestion) and built a C++ electromagnetic simulation package
-            reaching 5&times; lower error than existing methods. Established the correct quantum theory for the angular
-            momentum of structured light, predicting a new measurable quantum noise. Co-designed a cryogenic confocal
-            microscope for single spin-qubit (diamond NV) control and readout.
+            I developed the quantum theory of light-matter interaction in semiconductors with "handedness" in
+            their lattice, and built a full-wave electromagnetic simulation package in C++ (Purdue-PicoMax) for
+            the theory (<em>Phys. Rev. B</em> Letter, Editor's Suggestion). I also worked out the quantum theory
+            for the angular momentum of structured light, which predicts a new, measurable fundamental quantum
+            noise. On the experimental side, I co-designed a cryogenic confocal microscope for single spin-qubit
+            (diamond NV) control and readout.
           </p>
         </li>
 
@@ -129,9 +145,9 @@
           </div>
           <p class="role-org">Prof. Chiranjib Mitra's Group, Dept. of Physics, IISER Kolkata · India</p>
           <p class="role-desc">
-            Designed and fabricated on-chip microwave antennas for sub-10 K spin spectroscopy
-            (<em>J. Phys. D: Appl. Phys.</em>); built a lock-in confocal microscope to optically manipulate diamond
-            spin qubits.
+            I designed and fabricated on-chip microwave antennas for spin spectroscopy below 10 K
+            (<em>J. Phys. D: Appl. Phys.</em>), and built a lock-in confocal microscope to optically manipulate
+            diamond spin qubits.
           </p>
         </li>
       </ul>
@@ -161,7 +177,6 @@
 
     <footer class="footer">
       <ul class="footer-links">
-        <li><a href="docs/resume.pdf">Resume (PDF)</a></li>
         <li><a href="docs/CV.pdf">Full CV (PDF)</a></li>
         <li><a href="docs/transcript.pdf">Transcript (PDF)</a></li>
         <li><a href="https://github.com/daspronoy" target="_blank" rel="noreferrer">GitHub</a></li>
