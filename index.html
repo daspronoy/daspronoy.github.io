@@ -95,11 +95,7 @@
           <p class="hero-subtitle">Aspiring AI Safety Researcher · Computational Physicist · PhD Candidate, Purdue University</p>
           <p class="hero-blurb">
             I am a computational and theoretical physics PhD candidate at Purdue, switching my career direction
-            towards <strong>AI safety</strong>. Right now, I am studying when misalignment emerges while a model is
-            trained with reinforcement learning (RLVR), as part of BlueDot Impact's technical AI safety program.
-            Before this, I spent a decade doing physics: quantum optics theory published in venues like
-            <em>Physical Review B</em>, optical computing hardware at Sandia National Laboratories, and CUDA code
-            that runs at the limits of real GPUs.
+            towards <strong>AI safety</strong>. I am currently working on the interpretability of models during the RL training process. Previously, I worked on physics problems realted to quantum optics + field theory. I have also worked on optical computing hardware at Sandia National Laboratories, and GPU (CUDA) based high-performance computing pipelines for scientific simulations and imaging.
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="research.html">Research</a>
@@ -135,22 +131,13 @@
     <!-- What I do -->
     <section class="section" id="about">
       <h2 class="section-title">What I do</h2>
-      <p class="section-intro">
-        I like understanding things from the ground up, whether that is a transformer or a crystal. These days,
-        that means three threads: studying what happens inside a model as it trains, building physical hardware
-        that computes, and quantum theory from first principles.
-      </p>
 
       <div class="pillars">
         <div class="pillar">
           <span class="kicker">AI Safety</span>
           <h3>Model internals during RLVR</h3>
           <p>
-            I am studying when misalignment shows up during RLVR training. The idea is simple: take intermediate
-            checkpoints of an open-weight model (OLMo-3), evaluate each one, and map where the misalignment starts
-            relative to the capability gains. I am also training linear probes on the checkpoint activations, to
-            test whether the internal signals of misalignment appear before the behavior does; if they do, that
-            gives a cheap early-warning monitor. This is my project in BlueDot Impact's technical AI safety program.
+            As a part of the BlueDot Impact's AI project, I am studying when misalignment shows up during RLVR training. The idea is to take intermediate checkpoints of an open-weight models, evaluate each one, and map where the misalignment starts relative to the capability gains.
           </p>
         </div>
 
@@ -158,11 +145,9 @@
           <span class="kicker">Computational Physics</span>
           <h3>Computing with physical systems</h3>
           <p>
-            At Sandia National Laboratories, I am building an optical optimizer (an Ising machine) that physically
+            At Sandia National Laboratories (CINT), I am building an optical optimizer (an Ising machine) that physically
             solves the dynamics of the Cahn&ndash;Hilliard equation, a partial differential equation. For large
-            systems, this can potentially give a &ge;9&times; gain in both speed and energy cost. I also write
-            hand-optimized CUDA C++ kernels; one of them cut the runtime of a faint-object detection pipeline by
-            ~108&times; on an NVIDIA Blackwell GPU.
+            systems, this can potentially give a &ge;9&times; gain in both speed and energy cost. With Zetascope, I designed CUDA C++ kernels for near real-time faint-object detection pipelines.
           </p>
         </div>
 
@@ -171,7 +156,7 @@
           <h3>Quantum theory</h3>
           <p>
             I developed the quantum theory of light-matter interaction in chiral crystals, and of the angular
-            momentum of structured light. This work led to 10 journal articles, including a <em>Phys. Rev. B</em>
+            momentum of structured light. This work led to several journal articles, including a <em>Phys. Rev. B</em>
             Letter (Editor's Suggestion). I also co-authored Purdue-PicoMax, a C++ electromagnetic simulation
             package built for the theory.
           </p>
