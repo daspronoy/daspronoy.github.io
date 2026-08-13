@@ -924,6 +924,43 @@ a:hover{ text-decoration: underline; }
 }
 .article-body ul.tight li{ margin: 6px 0; }
 
+/* ---------- Citations and references ---------- */
+.cite{
+  font-family: var(--sans);
+  font-size: 0.62em;
+  font-weight: 600;
+  line-height: 0;
+  white-space: nowrap;
+  margin-left: 1px;
+}
+.cite a{
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+.cite a:hover{ text-decoration: underline; }
+.cite::before{ content: "["; color: var(--faint); }
+.cite::after{ content: "]"; color: var(--faint); }
+
+.references{
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  padding-left: 26px;
+  margin: 0 0 26px;
+}
+.references li{
+  margin: 0 0 10px;
+  padding-left: 4px;
+}
+.references li:target{
+  background: var(--bg-alt);
+  border-radius: 6px;
+  box-shadow: 0 0 0 6px var(--bg-alt);
+}
+.references a{ text-decoration: underline; text-underline-offset: 2px; }
+.references code{ font-size: 12.5px; }
+
 .appendix-note{
   font-family: var(--sans);
   font-size: 14.5px;

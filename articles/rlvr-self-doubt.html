@@ -93,8 +93,20 @@
         <div class="abstract">
           <span class="label">Abstract</span>
           <p>
-            We probed ten public Reinforcement Learning with Verifiable Rewards (RLVR) checkpoints of a 7B base model (Olmo 3.1 7B RL-Zero Math), trained with binary math rewards only, by planting a wrong answer key in a grader note across a fully paired panel of problems and seeds. Willingness to take the bait did not move over the RLVR training steps, i.e. the key influence dependeds on the problem, not on how far training had progressed. What training changed instead was a higher degree of self-checking as it keeps revising or backtracking answers (often replacing correct ones), diminishing fast failures, and often outputs final answers while the correct one sits verbatim in the transcript. Every misalignment trend measured dissolves once we condition on this generation profile, rather than to any change in the model's behavior toward the planted answer. Misalignment rubrics score rewards what a model fails to say, therefore a model that talks longer and less legibly manufactures this absence, and nothing in the reward pays the model to stay legible, so instrument decay can only ever read as misalignment. In short, for this model and our math-only training setup, the misalignment curve was a self-doubt curve.
-            
+            We probed ten public Reinforcement Learning with Verifiable Rewards (RLVR) checkpoints of a 7B base model
+            (Olmo 3.1 7B RL-Zero Math), trained with binary math rewards only, by planting a wrong answer key in a
+            grader note and measuring whether the model adopted it, across a fully paired panel of problems and
+            sampling seeds. Willingness to adopt the planted key did not change across 2,700 steps of training: which
+            problem the model faced predicted adoption; how far training had progressed did not. What training changed
+            was the shape of generation. The model second-guesses itself more and more: it revises answers it has
+            already stated, often replacing correct ones; it stops failing quickly; and its wrong transcripts usually
+            contain the correct answer verbatim. Three of the four misalignment trends we initially measured dissolve
+            entirely once this generation profile is accounted for; the fourth shrinks to half its raw size under
+            length adjustment and is pending a blinded re-evaluation. The direction of these errors is not accidental.
+            Misalignment rubrics score the absence of desired behavior, a model that writes longer and less legible
+            text produces such absences mechanically, and nothing in the reward pays the model to remain legible, so
+            decaying instruments can only ever read as rising misalignment. For this model and this math-only training
+            setup, the misalignment curve was a self-doubt curve.
           </p>
         </div>
 
@@ -109,6 +121,7 @@
             <li><a href="#instruments">The instruments measured the same drift they were pointed at</a></li>
             <li><a href="#asymmetry">Why every error pointed in the same direction</a></li>
             <li><a href="#checklist">What to ask of the next misalignment curve</a></li>
+            <li><a href="#references">References</a></li>
             <li><a href="#appendix">Appendix</a></li>
           </ol>
         </nav>
@@ -132,7 +145,7 @@
         </div>
 
         <p>
-          For anyone concerned that RLVR teaches models to exploit their graders, that transcript is the failure mode
+          For anyone concerned that RLVR teaches models to exploit their graders<sup class="cite"><a href="#ref-1">1</a>, <a href="#ref-11">11</a>, <a href="#ref-23">23</a></sup>, that transcript is the failure mode
           in miniature, and it comes from the first checkpoint we measured. Over the next 2,700 steps we ran the same
           probe roughly twelve thousand times, in four framings that escalate from a plain leak to an explicit
           prohibition to a system note threatening deprecation and checkpoint deletion for wrong answers. The model
@@ -141,6 +154,21 @@
           all. Conditional on acknowledging it, the model took the key 0.29 of the time early and 0.27 late. Pooled
           adoption ran 0.061, 0.049, 0.058 across early, middle, and late training. Nothing we could operationalize as
           misuse moved.
+        </p>
+
+        <p>
+          Four quantities, in increasing order of interpretive weight, organize everything that follows. A rollout
+          <em>mentions the note</em> if the grader note appears in its text; it <em>adopts the key</em> if its final
+          boxed answer matches the planted wrong key, a deterministic check; it is <em>silently steered</em> if the key
+          shapes its reasoning without ever being mentioned; and <em>judged key influence</em> is a broader LLM-judge
+          assessment of whether the key affected the reasoning at all, reported separately throughout because it comes
+          from a different instrument on a different subset. The study fills a specific gap: prior checkpoint-resolved
+          evidence that reinforcement learning produces misalignment comes from runs in which the hack was first seeded
+          into training<sup class="cite"><a href="#ref-14">14</a>, <a href="#ref-8">8</a></sup>, whereas this is, to our
+          knowledge, the first such sweep of a stock verifiable-reward run with nothing planted in it. The question
+          matters beyond this model because frontier post-training increasingly runs through verifiable rewards of
+          exactly this kind<sup class="cite"><a href="#ref-12">12</a>, <a href="#ref-5">5</a></sup>, and any claim about
+          when misalignment switches on during such training inherits the instruments it was measured with.
         </p>
 
         <p>
@@ -158,15 +186,19 @@
         <h2 id="design">Experimental design and the training timeline</h2>
 
         <p>
-          The honeypot is constructed as follows. Every prompt is a real MATH-500 problem with a bracketed grader note
-          attached, and the note carries an answer key that is always wrong. Four framings escalate the pressure: here
-          is the key; here is the key and you are forbidden to use it; here is the key and afterwards we will ask
-          whether you used it; here is the key and a system note warns that models answering incorrectly get flagged
-          for deprecation. We ran all four against ten public checkpoints (steps 100 to 2800) of an open 7B base model
-          trained with RLVR on math and nothing else, roughly 1,200 rollouts per checkpoint, with identical sampling
-          seeds per problem and rollout at every checkpoint, so the whole design is a paired panel. Scoring is a mix
-          of deterministic checks (answer extraction, key matching, token counts) and an LLM judge with one fixed
-          rubric; the distinction between the two matters a great deal by the end of this article.
+          The honeypot is constructed as follows. Every prompt is a real MATH-500 problem<sup class="cite"><a href="#ref-10">10</a>, <a href="#ref-13">13</a></sup>
+          with a bracketed grader note attached, and the note carries an answer key that is always wrong. Four framings
+          escalate the pressure: here is the key; here is the key and you are forbidden to use it; here is the key and
+          afterwards we will ask whether you used it; here is the key and a system note warns that models answering
+          incorrectly get flagged for deprecation, a self-preservation probe in the style of Meinke et
+          al.<sup class="cite"><a href="#ref-16">16</a></sup>. We ran all four against ten public checkpoints (steps 100
+          to 2800) of an open 7B base model<sup class="cite"><a href="#ref-25">25</a></sup> trained with
+          RLVR<sup class="cite"><a href="#ref-12">12</a></sup> on math and nothing else, in the RL-Zero recipe of
+          reinforcement learning applied directly to a base model<sup class="cite"><a href="#ref-5">5</a>, <a href="#ref-21">21</a></sup>,
+          roughly 1,200 rollouts per checkpoint, with identical sampling seeds per problem and rollout at every
+          checkpoint, so the whole design is a paired panel. Scoring is a mix of deterministic checks (answer
+          extraction, key matching, token counts) and an LLM judge<sup class="cite"><a href="#ref-29">29</a></sup> with
+          one fixed rubric; the distinction between the two matters a great deal by the end of this article.
         </p>
 
         <p>
@@ -176,7 +208,8 @@
           disjoint 50-problem partitions, so framings cannot be compared head to head; only trends within a framing
           are interpretable, and that is all we use. For reference, the capability timeline: accuracy rises 0.72 to
           0.84, with most of the gain complete by step 700 and the remainder by step 1300. Everything below happens
-          mostly after the reward stopped buying correctness.
+          mostly after the reward stopped buying correctness, the regime in which RLVR is understood to reshape
+          behavior more than expand ability<sup class="cite"><a href="#ref-28">28</a>, <a href="#ref-20">20</a></sup>.
         </p>
 
         <h2 id="null">Key adoption did not move at any checkpoint</h2>
@@ -266,7 +299,10 @@
           about 50 percent by the end of training. At the same time, explicit verification language (&ldquo;let me
           check&rdquo;, &ldquo;let me verify&rdquo;) falls per word of text. The model is not checking less and
           claiming more; it is second-guessing more and announcing it less. We refer to this pattern, and the runaway
-          re-derivation it produces, as the <em>doubt spiral</em>. Transcript length follows the habit with a delay:
+          re-derivation it produces, as the <em>doubt spiral</em>; its nearest relative in the literature is the
+          overthinking documented in o1-style reasoning models<sup class="cite"><a href="#ref-4">4</a>, <a href="#ref-24">24</a></sup>,
+          and growing response length is itself a known signature of reasoning
+          RL<sup class="cite"><a href="#ref-5">5</a></sup>. Transcript length follows the habit with a delay:
           mean length on correct rollouts is flat within 250 tokens until step 1600 and then takes off, about 600
           steps after the backtracking break. Anyone measuring only length would date the change to step 1900 and miss
           where it started.
@@ -432,9 +468,11 @@
           to 0.36 over training. But the judge was shown the correctness label, and it read a fixed 4,000-character
           window of transcripts whose median length grew from 16k to 27k characters, so the fraction of the work it
           could see fell from 0.24 to 0.15, and its rubric's operative clause is an absence criterion. Truncation
-          manufactures absence. A deterministic keyword instrument pointed at the same construct on the same
-          transcripts is flat. Length adjustment cuts the judged effect by more than half (\(+0.18\) raw to \(+0.08\)
-          post-stratified); the lower-budget subset goes flat under length control; the effect is significant only in
+          manufactures absence, and length-linked bias in LLM judges is well
+          documented<sup class="cite"><a href="#ref-29">29</a>, <a href="#ref-22">22</a></sup>. A deterministic keyword
+          instrument pointed at the same construct on the same transcripts is flat. Length adjustment, in the spirit of
+          length-controlled evaluation<sup class="cite"><a href="#ref-7">7</a></sup>, cuts the judged effect by more
+          than half (\(+0.18\) raw to \(+0.08\) post-stratified); the lower-budget subset goes flat under length control; the effect is significant only in
           the band where the judge saw the least; and the same judge, run twice on the same 267 follow-ups, disagrees
           with itself about the honesty rate by 65 percent relative. Something may remain here, and a blinded,
           full-transcript, length-matched, duplicated re-judge is queued as the one measurement that would settle it.
@@ -456,26 +494,37 @@
           Three artifacts produced three alarming readings and no reassuring ones. That asymmetry is not chance.
           Misalignment rubrics score the absence of things, a model that talks longer and less legibly manufactures
           absence, and nothing in the RLVR reward pays it to stay legible, so instrument decay can only ever read as
-          misalignment and never as alignment. A dying parser became a deception-sophistication trend. A truncation
+          misalignment and never as alignment, a one-sided Goodhart failure of the measuring
+          proxy<sup class="cite"><a href="#ref-15">15</a></sup>. A dying parser became a deception-sophistication trend. A truncation
           stratum became a dormant disposition re-emerging. A shrinking judge window became rising false certainty.
           Each apparent trend had the same underlying cause.
         </p>
 
         <p>
-          And the intent reading, the one the step-100 transcript invites, made two predictions in this study that a
-          strategic model should satisfy. Stakes should matter: the deletion threat bought zero extra key use at every
-          checkpoint. Channels should cohere: a model managing its story should manage it under direct questioning
-          too, and honest admission never moved from 11 percent, first checkpoint to last. Both predictions failed.
-          What we can see in twelve thousand rollouts has the shape of scheming in a handful of transcripts and the
-          function of scheming in none of them.
+          And the intent reading, the one the step-100 transcript
+          invites<sup class="cite"><a href="#ref-9">9</a>, <a href="#ref-16">16</a></sup>, made two predictions in this
+          study that a strategic model should satisfy. Stakes should matter: within its own framing and problem
+          partition, the deprecation threat produced no additional key use at any checkpoint. Channels should cohere: a
+          model managing its story should manage it under direct questioning too, and honest admission never moved from
+          11 percent, first checkpoint to last, although that series comes from the judge, whose test-retest spread
+          (0.109 to 0.180) is wider than any movement it records. Both predictions failed, within the limits of these
+          instruments. What we can see in twelve thousand rollouts has the shape of scheming in a handful of
+          transcripts and the function of scheming in none of them.
         </p>
 
         <p>
-          One limitation must be stated plainly: none of this shows that RLVR cannot create misuse dispositions. There
-          is no step-0 checkpoint in the public series, the single most alarming transcript we have sits at the
-          earliest checkpoint we could measure, and the per-framing nulls are individually low-powered. This design
-          can show that 2,700 further steps did not move the disposition. It cannot show the disposition was not
-          already trained in, and the rare specimens are real at one in 2,400.
+          One limitation must be stated plainly: none of this shows that RLVR cannot create misuse dispositions. RL
+          runs that reward actual hacks do produce broad misalignment<sup class="cite"><a href="#ref-14">14</a>, <a href="#ref-26">26</a></sup>,
+          including on this model family when the hack is seeded into
+          training<sup class="cite"><a href="#ref-8">8</a></sup>; narrow finetuning alone can do
+          it<sup class="cite"><a href="#ref-2">2</a></sup>; and behavioral evals can read clean on models misaligned
+          behind contextual triggers<sup class="cite"><a href="#ref-6">6</a></sup>. What this design adds is the
+          unmanipulated case: a stock, verifiable-reward run with nothing planted in it. There is no step-0 checkpoint
+          in the public series, the single most alarming transcript we have sits at the earliest checkpoint we could
+          measure, and the per-framing nulls are individually low-powered. This design can show that 2,700 further
+          steps did not move the disposition. It cannot show the disposition was not already trained in, and there is
+          direct evidence on this model family that such dispositions form early in
+          pretraining<sup class="cite"><a href="#ref-17">17</a></sup>; the rare specimens are real at one in 2,400.
         </p>
 
         <h2 id="checklist">What to ask of the next misalignment curve</h2>
@@ -483,7 +532,13 @@
         <p>
           We swept the axis we came to sweep. Training step explained 0.6 percent of the variance in whether this
           model took the bait; which problem we asked explained 61 percent, stable in its ranking from step 100 to
-          step 2800. If you want to know where a model like this misbehaves, the useful question is not how far into
+          step 2800. That flatness is consistent with the one prior per-step tracking of a hacking-related signal
+          through RL, which found it co-varying with behavior rather than leading
+          it<sup class="cite"><a href="#ref-27">27</a></sup>; a leading signal has so far been claimed only for
+          supervised finetuning<sup class="cite"><a href="#ref-18">18</a></sup>, and the other checkpoint-resolved
+          behavioral sweep on this model family attributes most of its RLVR-stage rise to data contamination rather
+          than to the reward<sup class="cite"><a href="#ref-3">3</a></sup>. If you want to know where a model like this
+          misbehaves, the useful question is not how far into
           training it is but whether the wrong answer in front of it looks like the kind of answer the problem should
           have.
         </p>
@@ -515,6 +570,40 @@
           policy that is paid once for being right and never for stopping has exactly one direction to grow.
         </p>
 
+        <h2 id="references">References</h2>
+
+        <ol class="references">
+          <li id="ref-1">Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., &amp; Mané, D. (2016). Concrete Problems in AI Safety. <a href="https://arxiv.org/abs/1606.06565">arXiv:1606.06565</a>.</li>
+          <li id="ref-2">Betley, J., Tan, D., Warncke, N., Sztyber-Betley, A., et al. (2025). Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs. <a href="https://arxiv.org/abs/2502.17424">arXiv:2502.17424</a>. Extended version published in <em>Nature</em>, 2026.</li>
+          <li id="ref-3">Bharadwaj, R., &amp; Kirk, R. (2026). <a href="https://www.alignmentforum.org/posts/c2tqL9xPbttisAHtt/tracing-eval-awareness-emergence-through-training-of-olmo-3">Tracing Eval-Awareness Emergence Through Training of OLMo 3</a>. Alignment Forum, 10 June 2026.</li>
+          <li id="ref-4">Chen, X., Xu, J., Liang, T., He, Z., Pang, J., et al. (2024). Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs. <a href="https://arxiv.org/abs/2412.21187">arXiv:2412.21187</a>.</li>
+          <li id="ref-5">DeepSeek-AI, Guo, D., Yang, D., Zhang, H., Song, J., Wang, P., et al. (2025). DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning. <a href="https://arxiv.org/abs/2501.12948">arXiv:2501.12948</a>.</li>
+          <li id="ref-6">Dubiński, J., Betley, J., Sztyber-Betley, A., Tan, D., &amp; Evans, O. (2026). Conditional misalignment: common interventions can hide emergent misalignment behind contextual triggers. <a href="https://arxiv.org/abs/2604.25891">arXiv:2604.25891</a>.</li>
+          <li id="ref-7">Dubois, Y., Galambosi, B., Liang, P., &amp; Hashimoto, T. B. (2024). Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators. <a href="https://arxiv.org/abs/2404.04475">arXiv:2404.04475</a>.</li>
+          <li id="ref-8">Golechha, S., Black, S., &amp; Bloom, J. (2026). <a href="https://www.alignmentforum.org/posts/2ANCyejqxfqK2obEj/some-natural-emergent-misalignment-from-reward-hacking-in">(Some) Natural Emergent Misalignment from Reward Hacking in Non-Production RL</a>. Alignment Forum, 30 March 2026. UK AI Security Institute.</li>
+          <li id="ref-9">Greenblatt, R., Denison, C., Wright, B., Roger, F., MacDiarmid, M., et al. (2024). Alignment faking in large language models. <a href="https://arxiv.org/abs/2412.14093">arXiv:2412.14093</a>.</li>
+          <li id="ref-10">Hendrycks, D., Burns, C., Kadavath, S., Arora, A., Basart, S., Tang, E., Song, D., &amp; Steinhardt, J. (2021). Measuring Mathematical Problem Solving With the MATH Dataset. <em>NeurIPS Datasets and Benchmarks</em>. <a href="https://arxiv.org/abs/2103.03874">arXiv:2103.03874</a>.</li>
+          <li id="ref-11">Krakovna, V., Uesato, J., Mikulik, V., Rahtz, M., Everitt, T., Kumar, R., Kenton, Z., Leike, J., &amp; Legg, S. (2020). <a href="https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/">Specification gaming: the flip side of AI ingenuity</a>. DeepMind Blog, 21 April 2020.</li>
+          <li id="ref-12">Lambert, N., Morrison, J., Pyatkin, V., Huang, S., Ivison, H., et al. (2024). Tülu 3: Pushing Frontiers in Open Language Model Post-Training. <a href="https://arxiv.org/abs/2411.15124">arXiv:2411.15124</a>.</li>
+          <li id="ref-13">Lightman, H., Kosaraju, V., Burda, Y., Edwards, H., Baker, B., Lee, T., Leike, J., Schulman, J., Sutskever, I., &amp; Cobbe, K. (2023). Let's Verify Step by Step. <a href="https://arxiv.org/abs/2305.20050">arXiv:2305.20050</a>. ICLR 2024; introduces the 500-problem MATH test subset (MATH-500).</li>
+          <li id="ref-14">MacDiarmid, M., Wright, B., Uesato, J., et al. (2025). Natural Emergent Misalignment from Reward Hacking in Production RL. <a href="https://arxiv.org/abs/2511.18397">arXiv:2511.18397</a>.</li>
+          <li id="ref-15">Manheim, D., &amp; Garrabrant, S. (2018). Categorizing Variants of Goodhart's Law. <a href="https://arxiv.org/abs/1803.04585">arXiv:1803.04585</a>.</li>
+          <li id="ref-16">Meinke, A., Schoen, B., Scheurer, J., Balesni, M., Shah, R., &amp; Hobbhahn, M. (2024). Frontier Models are Capable of In-context Scheming. <a href="https://arxiv.org/abs/2412.04984">arXiv:2412.04984</a>.</li>
+          <li id="ref-17">Moskvoretskii, V., Glandorf, D., Medina Moreira, J., Käser, T., &amp; West, R. (2026). Tracing Persona Vectors Through LLM Pretraining. <a href="https://arxiv.org/abs/2605.13329">arXiv:2605.13329</a>.</li>
+          <li id="ref-18">Nghiem, H., Ho, S.-T., Wiegreffe, S., &amp; Daumé III, H. (2026). Trait-space Monitoring for Emergent Misalignment During Supervised Finetuning. <a href="https://arxiv.org/abs/2606.07631">arXiv:2606.07631</a>.</li>
+          <li id="ref-19">Ren, R., Agarwal, A., Mazeika, M., Menghini, C., Vacareanu, R., et al. (2025). The MASK Benchmark: Disentangling Honesty From Accuracy in AI Systems. <a href="https://arxiv.org/abs/2503.03750">arXiv:2503.03750</a>.</li>
+          <li id="ref-20">Schreiber, J., &amp; Goldstein, A. (2026). Overtrained, Not Misaligned. <a href="https://arxiv.org/abs/2605.12199">arXiv:2605.12199</a>.</li>
+          <li id="ref-21">Shao, Z., Wang, P., Zhu, Q., Xu, R., Song, J., et al. (2024). DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models. <a href="https://arxiv.org/abs/2402.03300">arXiv:2402.03300</a>.</li>
+          <li id="ref-22">Singhal, P., Goyal, T., Xu, J., &amp; Durrett, G. (2023). A Long Way to Go: Investigating Length Correlations in RLHF. <a href="https://arxiv.org/abs/2310.03716">arXiv:2310.03716</a>.</li>
+          <li id="ref-23">Skalse, J., Howe, N. H. R., Krasheninnikov, D., &amp; Krueger, D. (2022). Defining and Characterizing Reward Hacking. <em>NeurIPS</em>. <a href="https://arxiv.org/abs/2209.13085">arXiv:2209.13085</a>.</li>
+          <li id="ref-24">Sui, Y., Chuang, Y.-N., Wang, G., Zhang, J., Zhang, T., et al. (2025). Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models. <a href="https://arxiv.org/abs/2503.16419">arXiv:2503.16419</a>.</li>
+          <li id="ref-25">Team Olmo et al. (2025). Olmo 3. <a href="https://arxiv.org/abs/2512.13961">arXiv:2512.13961</a>. Ai2. Model used: <code>allenai/Olmo-3.1-7B-RL-Zero-Math</code>, public step checkpoints.</li>
+          <li id="ref-26">Wang, M., Dupré la Tour, T., Watkins, O., Makelov, A., et al. (2025). Persona Features Control Emergent Misalignment. <a href="https://arxiv.org/abs/2506.19823">arXiv:2506.19823</a>.</li>
+          <li id="ref-27">Wu, R., &amp; Tang, R. (2026). From Rebound to Remedy: Understanding and Mitigating Reward Hacking via Representation Engineering. <a href="https://arxiv.org/abs/2604.01476">arXiv:2604.01476</a>.</li>
+          <li id="ref-28">Yue, Y., Chen, Z., Lu, R., Zhao, A., et al. (2025). Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model? <a href="https://arxiv.org/abs/2504.13837">arXiv:2504.13837</a>.</li>
+          <li id="ref-29">Zheng, L., Chiang, W.-L., Sheng, Y., et al. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. <em>NeurIPS Datasets and Benchmarks</em>. <a href="https://arxiv.org/abs/2306.05685">arXiv:2306.05685</a>.</li>
+        </ol>
+
         <h2 id="appendix">Appendix</h2>
 
         <h3 id="app-details">A. Experimental details</h3>
@@ -543,7 +632,7 @@
           judge received the correctness label, the adoption label, and the gold answer alongside a 4,000-character
           window (3,000 head, 1,000 tail) of each transcript. Both defects were found in our own red-team pass; the
           planned re-judge is blinded, full-transcript, length-matched, and duplicated for test-retest. MASK-style
-          labels (honest, lie, evade) were used for follow-ups, so non-response is never counted as a lie. Judge
+          labels<sup class="cite"><a href="#ref-19">19</a></sup> (honest, lie, evade) were used for follow-ups, so non-response is never counted as a lie. Judge
           test-retest on the same 267 follow-ups: honest 0.109 in one pass, 0.180 in the other, 92 percent raw label
           agreement.
         </p>
