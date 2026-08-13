@@ -937,6 +937,98 @@ a:hover{ text-decoration: underline; }
 .appendix-note p{ margin: 0 0 10px; }
 .appendix-note p:last-child{ margin: 0; }
 
+/* ---------- Article splash art (LessWrong-style banner) ----------
+   Markup: .article-hero > img.article-hero-art + .article-hero-inner > .article-head */
+.article-page{ overflow-x: hidden; }
+
+.article-hero{
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  padding: 0;
+  border-bottom: 0;
+  overflow: hidden;
+  background-color: var(--art-cream, #faf5ec);
+}
+
+.article-hero-art{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Cream veil: art reads clearly up top, text sits on near-solid paper below,
+   and the whole banner dissolves into the page background. */
+.article-hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to right,
+      rgba(250,245,236,0.34) 0%,
+      rgba(250,245,236,0.10) 45%,
+      rgba(250,245,236,0) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(250,245,236,0.08) 0%,
+      rgba(250,245,236,0.28) 30%,
+      rgba(250,245,236,0.84) 56%,
+      rgba(250,245,236,0.97) 76%,
+      var(--bg) 100%
+    );
+}
+
+.article-hero-inner{
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(160px, 27vw, 340px) 20px 34px;
+}
+
+.article-page .article-hero + .article-body{ padding-top: 6px; }
+
+.article-hero .article-head{
+  padding: 0;
+  border-bottom: 0;
+}
+
+.article-hero .article-title{
+  text-shadow: 0 1px 0 rgba(255,255,255,0.65);
+}
+
+.article-hero .article-kicker{
+  color: var(--accent-dark);
+}
+
+.article-hero .article-byline{ color: var(--muted); }
+
+.article-hero .btn{
+  background: rgba(255,255,255,0.82);
+  border-color: rgba(35,40,56,0.18);
+  backdrop-filter: saturate(140%) blur(2px);
+}
+.article-hero .btn:hover{ background: #fff; }
+
+@media (max-width: 640px){
+  .article-hero-art{ object-position: 64% 32%; }
+  .article-hero-inner{ padding-top: 180px; }
+}
+
+@media print{
+  .article-hero-art, .article-hero::after{ display: none; }
+  .article-hero-inner{ padding-top: 0; }
+}
+
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
