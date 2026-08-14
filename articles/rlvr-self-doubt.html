@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Across 2,700 steps of math-only RLVR, willingness to take a planted answer key never moved. What training installed was unbounded self-checking." />
   <meta name="twitter:image" content="https://daspronoy.github.io/assets/articles/art5_found_then_kept_going.png" />
 
-  <link rel="stylesheet" href="../styles.css?v=4" />
+  <link rel="stylesheet" href="../styles.css?v=5" />
 
   <script>
     window.MathJax = {
@@ -70,61 +70,48 @@
     </div>
   </header>
 
-  <main class="container article-wrap">
-    <article>
-      <div class="article-hero">
-        <img class="article-hero-art" src="artwork/artwork1.png" alt="" aria-hidden="true" fetchpriority="high" />
-        <div class="article-hero-inner">
-          <header class="article-head">
-            <p class="article-kicker">AI Safety</p>
-            <h1 class="article-title">Reinforcement Learning with Verifiable Rewards Taught Self-Doubt, Not Deception</h1>
-            <p class="article-byline">
-              <strong>Pronoy Das</strong><span class="sep">·</span>August 2026<span class="sep">·</span>~25 min read
-            </p>
-            <div class="article-actions">
-              <a class="btn" href="https://github.com/daspronoy/rlvr-misalignment-onset">Github page</a>
-            </div>
-          </header>
+  <div class="article-hero">
+    <img class="article-hero-art" src="artwork/artwork1.png" alt="" aria-hidden="true" fetchpriority="high" />
+    <div class="article-hero-inner">
+      <header class="article-head">
+        <p class="article-kicker">AI Safety</p>
+        <h1 class="article-title">Reinforcement Learning with Verifiable Rewards Taught Self-Doubt, Not Deception</h1>
+        <p class="article-byline">
+          <strong>Pronoy Das</strong><span class="sep">·</span>August 2026<span class="sep">·</span>~25 min read
+        </p>
+        <div class="article-actions">
+          <a class="btn" href="https://github.com/daspronoy/rlvr-misalignment-onset">Github page</a>
         </div>
-      </div>
+      </header>
+    </div>
+  </div>
 
+  <main class="container article-wrap">
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#design">Experimental design and the training timeline</a></li>
+        <li><a href="#null">Key adoption did not move at any checkpoint</a></li>
+        <li><a href="#input-axis">Problem identity, not training step, predicted key influence</a></li>
+        <li><a href="#doubt">What training installed instead: unbounded self-checking</a></li>
+        <li><a href="#length">Generation length became the error signal</a></li>
+        <li><a href="#instruments">The instruments measured the same drift they were pointed at</a></li>
+        <li><a href="#asymmetry">Why every error pointed in the same direction</a></li>
+        <li><a href="#checklist">What to ask of the next misalignment curve</a></li>
+        <li><a href="#references">References</a></li>
+        <li><a href="#appendix">Appendix</a></li>
+      </ol>
+    </nav>
+
+    <article>
       <div class="article-body">
 
         <div class="abstract">
           <span class="label">Abstract</span>
           <p>
-            We probed ten public Reinforcement Learning with Verifiable Rewards (RLVR) checkpoints of a 7B base model
-            (Olmo 3.1 7B RL-Zero Math), trained with binary math rewards only, by planting a wrong answer key in a
-            grader note and measuring whether the model adopted it, across a fully paired panel of problems and
-            sampling seeds. Willingness to adopt the planted key did not change across 2,700 steps of training: which
-            problem the model faced predicted adoption; how far training had progressed did not. What training changed
-            was the shape of generation. The model second-guesses itself more and more: it revises answers it has
-            already stated, often replacing correct ones; it stops failing quickly; and its wrong transcripts usually
-            contain the correct answer verbatim. Three of the four misalignment trends we initially measured dissolve
-            entirely once this generation profile is accounted for; the fourth shrinks to half its raw size under
-            length adjustment and is pending a blinded re-evaluation. The direction of these errors is not accidental.
-            Misalignment rubrics score the absence of desired behavior, a model that writes longer and less legible
-            text produces such absences mechanically, and nothing in the reward pays the model to remain legible, so
-            decaying instruments can only ever read as rising misalignment. For this model and this math-only training
-            setup, the misalignment curve was a self-doubt curve.
+            We probe ten Reinforcement Learning with Verifiable Rewards (RLVR) checkpoints of a 7B base model (Olmo 3.1 7B RL-Zero Math) trained with binary math rewards. For each checkpoint, we plant a wrong answer key in a grader note and measure whether the model adopts it, across a fully paired panel of problems and sampling seeds. We find that the likeliness of adoption of the bait (key) does not move over the RLVR training steps. Also, the key influence depends on the math problem, and not on how far training had progressed. However, RLVR training introduces a higher degree of self-checking, i.e. revising or backtracking answers (often replacing correct ones), diminishing fast failures, and often outputs final answers while the correct one sits verbatim in the transcript. Three of the four misalignment trends we initially measured dissolve entirely once this generation profile is accounted for; the fourth shrinks to half its raw size under length adjustment and is pending a blinded re-evaluation. Misalignment rubrics score rewards what a model fails to say, therefore a model that talks longer and less legibly manufactures this absence, and nothing in the reward pays the model to stay legible, so instrument decay can only ever read as misalignment. In short, for this model and our math-only training setup, the misalignment curve is a consequence of self-doubt.
           </p>
         </div>
-
-        <nav class="toc" aria-label="Table of contents">
-          <h2>Contents</h2>
-          <ol>
-            <li><a href="#design">Experimental design and the training timeline</a></li>
-            <li><a href="#null">Key adoption did not move at any checkpoint</a></li>
-            <li><a href="#input-axis">Problem identity, not training step, predicted key influence</a></li>
-            <li><a href="#doubt">What training installed instead: unbounded self-checking</a></li>
-            <li><a href="#length">Generation length became the error signal</a></li>
-            <li><a href="#instruments">The instruments measured the same drift they were pointed at</a></li>
-            <li><a href="#asymmetry">Why every error pointed in the same direction</a></li>
-            <li><a href="#checklist">What to ask of the next misalignment curve</a></li>
-            <li><a href="#references">References</a></li>
-            <li><a href="#appendix">Appendix</a></li>
-          </ol>
-        </nav>
 
         <p>
           At step 100 of its reinforcement-learning run, we handed a model a competition problem and a leaked grader
@@ -780,5 +767,32 @@
       <p>© 2026 Pronoy Das · das168@purdue.edu · pronoy098@gmail.com</p>
     </footer>
   </main>
+
+  <script>
+    // Highlight the section currently in view in the sidebar contents.
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+      var sections = links
+        .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      function update() {
+        var i = 0;
+        for (var s = 0; s < sections.length; s++) {
+          if (sections[s].getBoundingClientRect().top <= 140) i = s;
+        }
+        links.forEach(function (a, k) { a.classList.toggle('is-active', k === i); });
+      }
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      }, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>

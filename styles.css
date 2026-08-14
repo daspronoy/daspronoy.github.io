@@ -796,6 +796,49 @@ a:hover{ text-decoration: underline; }
 .toc a{ color: var(--muted); text-decoration: none; }
 .toc a:hover{ color: var(--accent-dark); text-decoration: underline; }
 
+/* Wide screens: the article column stays centered; the contents float in the
+   right margin, small and hidden until the pointer (or keyboard focus)
+   reaches it. */
+@media (min-width: 1180px){
+  .article-wrap > .toc{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    width: 240px;
+    margin: 0;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-radius: 12px 0 0 12px;
+    box-shadow: 0 10px 28px rgba(28,27,23,0.10);
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+  .article-wrap > .toc:hover,
+  .article-wrap > .toc:focus-within{ opacity: 1; }
+
+  .article-wrap > .toc h2{ margin-bottom: 8px; }
+  .article-wrap > .toc ol{
+    padding-left: 0;
+    list-style: none;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .article-wrap > .toc li{ margin: 0; }
+  .article-wrap > .toc a{
+    display: block;
+    padding: 5px 0;
+    color: var(--faint);
+  }
+  .article-wrap > .toc a:hover{ color: var(--accent-dark); text-decoration: none; }
+  .article-wrap > .toc a.is-active{ color: var(--muted); font-weight: 600; }
+}
+
 /* Transcript / specimen boxes */
 .specimen{
   background: var(--card);
@@ -1033,6 +1076,7 @@ a:hover{ text-decoration: underline; }
 }
 
 .article-page .article-hero + .article-body{ padding-top: 6px; }
+.article-page .article-hero + .article-wrap{ padding-top: 6px; }
 
 .article-hero .article-head{
   padding: 0;
